@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import gmoldes.components.contract.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<fx:root type="VBox" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+    <ContractHeader fx:id="contractHeader" />
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Empleador / Empleado">
+                    <ContractParts fx:id="contractParts"/>
+                </Tab>
+                <Tab text="Contrato">
+                    <ContractData fx:id="contractData"/>
+                </Tab>
+                <Tab text="Horario">
+                    <ContractSchedule fx:id="schedule"/>
+                </Tab>
+                <Tab text="Notas gestor">
+                    <ContractPublicNotes fx:id="publicNotes"/>
+                </Tab>
+                <Tab text="Notas privadas">
+                    <ContractPrivateNotes fx:id="privateNotes"/>
+                </Tab>
+            </tabs>
+        </TabPane>
+    <Line endX="770.0" stroke="#a4a0a0" />
+    <CurrentContract fx:id="currentContract"/>
+    <ContractActionComponents fx:id="actionComponents"/>
+</fx:root>
