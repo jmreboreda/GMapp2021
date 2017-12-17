@@ -20,7 +20,9 @@ public class App extends Application
     public void start(Stage primaryStage) throws IOException {
         MainController controller = new MainController();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(controller,720,650));
+        Scene scene = new Scene(controller,720,650);
+        //scene.getStylesheets().add(App.class.getResource("lcd.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

@@ -1,7 +1,9 @@
 package gmoldes.components.contract;
 
 import gmoldes.components.ViewLoader;
+import gmoldes.components.contract.events.ContractDataEvent;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -15,19 +17,31 @@ public class ContractActionComponents extends AnchorPane {
 
     private Parent parent;
 
+    private EventHandler<MouseEvent> OkButtonEventHandler;
+
     @FXML
-    private ContractActionComponents actionComponents;
+    private Button OkButton;
     @FXML
     private Button exitButton;
 
     public ContractActionComponents() {
 
         this.parent = ViewLoader.load(this, CURRENT_CONTRACT_FXML);
+        OkButton.setOnMouseClicked(this::onOkButton);
         exitButton.setOnMouseClicked(this::onExitButton);
+    }
+
+    private void onOkButton(MouseEvent event){
+        this.OkButtonEventHandler.handle(event);
     }
 
     private void onExitButton(MouseEvent event){
         Platform.exit();
         System.exit(0);
+    }
+
+    public void setOnOkButton(EventHandler<MouseEvent> OkButtonEventHandler){
+        this.OkButtonEventHandler = OkButtonEventHandler;
+
     }
 }

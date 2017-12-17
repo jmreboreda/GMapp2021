@@ -9,9 +9,9 @@ public class Utilities {
 
     private final String pattern = "dd-MM-yyyy";
 
-    public StringConverter converter = new StringConverter<LocalDate>() {
+    public static StringConverter converter = new StringConverter<LocalDate>() {
         DateTimeFormatter dateFormatter =
-                DateTimeFormatter.ofPattern(pattern);
+                DateTimeFormatter.ofPattern("dd-MM-yyyy");
         @Override
         public String toString(LocalDate date) {
             if (date != null) {

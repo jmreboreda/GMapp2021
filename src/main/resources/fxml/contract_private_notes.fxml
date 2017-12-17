@@ -5,6 +5,6 @@
 
 <fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea prefHeight="178.0" prefWidth="549.0" promptText="Área de texto para notas privadas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextArea fx:id="taPrivateNotes" prefHeight="178.0" prefWidth="549.0" promptText="Área de texto para notas privadas" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </fx:root>

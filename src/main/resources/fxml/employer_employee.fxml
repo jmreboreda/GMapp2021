@@ -70,7 +70,7 @@
                   </ListView>
                   <Button minHeight="37.0" minWidth="135.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="135.0" text="Nuevo empleado" textAlignment="CENTER" textFill="#045c0d" wrapText="true">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="145.0" right="100.0" top="10.0" />
+                        <Insets bottom="10.0" left="125.0" right="100.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                </children>
