@@ -18,13 +18,13 @@
       <GridPane>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.20001220703125" minWidth="10.0" prefWidth="27.799999999999955" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -43,12 +43,12 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="436.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+            <ChoiceBox prefHeight="26.0" prefWidth="436.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <TextField editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros&quot;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2">
+            <TextField editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros&quot;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
@@ -58,24 +58,24 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <ChoiceBox prefHeight="26.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label text="Desde" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label text="Desde" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Hasta" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Label text="Hasta" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <TextField alignment="CENTER" editable="false" text="180 días" GridPane.columnIndex="6" GridPane.rowIndex="3">
+            <TextField alignment="CENTER" editable="false" text="180 días" GridPane.columnIndex="7" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="5.0" top="12.0" />
+                  <Insets left="5.0" right="5.0" top="12.0" />
                </GridPane.margin>
             </TextField>
             <Label text="Jornada" GridPane.rowIndex="4">
@@ -83,19 +83,19 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <ChoiceBox prefHeight="26.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <Label prefHeight="18.0" prefWidth="148.0" text="Horas trabajo/Semana" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+            <Label prefHeight="16.0" prefWidth="232.0" text="Horas de trabajo a la semana" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="5.0" top="12.0" />
+                  <Insets left="15.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <TextField GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <TextField prefHeight="26.0" prefWidth="143.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="5.0" top="12.0" />
+                  <Insets top="12.0" />
                </GridPane.margin>
             </TextField>
             <Label text="Días Jornada" wrapText="true" GridPane.rowIndex="5">
@@ -106,7 +106,7 @@
                   <Insets />
                </opaqueInsets>
             </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="5">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -114,7 +114,7 @@
                   <Insets top="10.0" />
                </GridPane.margin>
                <children>
-                  <CheckBox mnemonicParsing="false" text="lun">
+                  <CheckBox mnemonicParsing="false" text="lunes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -122,7 +122,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="mar">
+                  <CheckBox mnemonicParsing="false" text="martes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -130,7 +130,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="mié">
+                  <CheckBox mnemonicParsing="false" text="miércoles">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -138,7 +138,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="jue">
+                  <CheckBox mnemonicParsing="false" text="jueves">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="vie">
+                  <CheckBox mnemonicParsing="false" text="viernes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="sáb">
+                  <CheckBox mnemonicParsing="false" text="sábado">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -162,7 +162,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="dom">
+                  <CheckBox mnemonicParsing="false" text="domingo">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -177,13 +177,13 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
-            <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" />
+            <DatePicker fx:id="dateFrom" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <DatePicker fx:id="dateTo" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
@@ -193,12 +193,12 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <DatePicker GridPane.columnIndex="1">
+            <DatePicker fx:id="dateNotification" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </DatePicker>
-            <TextField text="10:30" GridPane.columnIndex="2">
+            <TextField fx:id="hourNotification" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>

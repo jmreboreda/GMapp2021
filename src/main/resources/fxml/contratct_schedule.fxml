@@ -4,12 +4,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView layoutY="14.0" prefHeight="180.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView layoutY="14.0" prefHeight="414.0" prefWidth="707.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Dia semana" />
+            <TableColumn maxWidth="-1.0" minWidth="110.0" prefWidth="-1.0" text="Fecha" />
+            <TableColumn maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="AM Desde" />
+            <TableColumn maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="AM Hasta" />
+            <TableColumn maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="PM Desde" />
+            <TableColumn maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="PM Hasta" />
+            <TableColumn maxWidth="-1.0" minWidth="110.0" prefWidth="-1.0" text="Total horas" />
          </columns>
       </TableView>
    </children>

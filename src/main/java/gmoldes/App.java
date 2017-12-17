@@ -20,7 +20,7 @@ public class App extends Application
     public void start(Stage primaryStage) throws IOException {
         MainController controller = new MainController();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(controller,770,650));
+        primaryStage.setScene(new Scene(controller,720,650));
         primaryStage.show();
     }
 }

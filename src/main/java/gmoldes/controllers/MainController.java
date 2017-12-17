@@ -1,8 +1,7 @@
 package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
-import gmoldes.components.contract.ContractHeader;
-import gmoldes.components.contract.ContractParts;
+import gmoldes.components.contract.*;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
@@ -17,6 +16,14 @@ public class MainController extends VBox {
     private ContractHeader contractHeader;
     @FXML
     private ContractParts contractParts;
+    @FXML
+    private ContractData contractData;
+    @FXML
+    private ContractSchedule contractSchedule;
+    @FXML
+    private ContractPublicNotes contractPublicNotes;
+    @FXML
+    private ContractPrivateNotes contractPrivateNotes;
 
 
     public MainController() {

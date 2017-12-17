@@ -6,14 +6,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="TOP_RIGHT">
          <children>
             <Button fx:id="OkButton" disable="true" maxHeight="45.0" maxWidth="60.0" minHeight="45.0" minWidth="60.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="60.0" text="Aceptar" textFill="#02430e">
                <HBox.margin>
-                  <Insets bottom="15.0" left="525.0" right="20.0" top="15.0" />
+                  <Insets bottom="15.0" left="470.0" right="20.0" top="15.0" />
                </HBox.margin>
                <font>
                   <Font size="12.0" />
