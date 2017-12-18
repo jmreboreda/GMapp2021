@@ -12,9 +12,12 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class MainController extends VBox {
 
+
+    private static final Logger logger = Logger.getLogger(MainController.class.getSimpleName());
     private static final String MAIN_FXML = "/fxml/contract_main.fxml";
 
     private Parent parent;
@@ -36,6 +39,7 @@ public class MainController extends VBox {
 
 
     public MainController() {
+        logger.info("Initilizing Main fxml");
         this.parent = ViewLoader.load(this, MAIN_FXML);
     }
 

@@ -2,12 +2,14 @@ package gmoldes.utilities;
 
 import javafx.util.StringConverter;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Utilities {
-
-    private final String pattern = "dd-MM-yyyy";
 
     public static StringConverter converter = new StringConverter<LocalDate>() {
         DateTimeFormatter dateFormatter =
@@ -29,4 +31,15 @@ public class Utilities {
             }
         }
     };
+
+    public static Date verifyHourValue(String time){
+        Date hour;
+        DateFormat hourFormatter = new SimpleDateFormat("HH:mm");
+        try{
+            hour = hourFormatter.parse(time);
+        }catch(ParseException e){
+            return null;
+        }
+        return hour;
+    }
 }

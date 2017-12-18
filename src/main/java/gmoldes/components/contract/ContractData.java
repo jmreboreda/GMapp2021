@@ -7,10 +7,18 @@ import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.logging.Logger;
+
 
 public class ContractData extends AnchorPane {
 
+    private static final Logger logger = Logger.getLogger(ContractData.class.getSimpleName());
     private static final String CONTRACT_DATA_FXML = "/fxml/contract_data.fxml";
 
     private Parent parent;
@@ -30,21 +38,9 @@ public class ContractData extends AnchorPane {
 
     @FXML
     private void initialize(){
+        logger.info("Initializing contract data fxml ...");
         setupDatePickers();
-    }
-
-    private void setupDatePickers(){
-
-        dateFrom.setConverter(Utilities.converter);
-        dateFrom.showWeekNumbersProperty().set(false);
-        dateFrom.setEditable(false);
-        dateTo.setConverter(Utilities.converter);
-        dateTo.showWeekNumbersProperty().set(false);
-        dateTo.setEditable(false);
-        dateNotification.setConverter(Utilities.converter);
-        dateNotification.showWeekNumbersProperty().set(false);
-        dateNotification.setEditable(false);
-        dateNotification.setValue(LocalDate.now());
+        setupHourListener();
     }
 
     public DatePicker getDateNotification() {
@@ -86,5 +82,38 @@ public class ContractData extends AnchorPane {
         contractData.setDateTo(this.getDateTo());
 
         return contractData;
+    }
+
+    private void setupDatePickers(){
+        dateNotification.setConverter(Utilities.converter);
+        dateNotification.showWeekNumbersProperty().set(false);
+        dateNotification.setEditable(false);
+        dateNotification.setValue(LocalDate.now());
+
+        DateTimeFormatter hourFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        hourNotification.setText(hourFormatter.format(LocalTime.now()));
+
+        dateFrom.setConverter(Utilities.converter);
+        dateFrom.showWeekNumbersProperty().set(false);
+        dateFrom.setEditable(false);
+
+        dateTo.setConverter(Utilities.converter);
+        dateTo.showWeekNumbersProperty().set(false);
+        dateTo.setEditable(false);
+    }
+
+    private void setupHourListener(){
+        hourNotification.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (!newPropertyValue)
+            {
+                Date hour = Utilities.verifyHourValue(hourNotification.getText());
+                if(hour == null){
+                    hourNotification.setText("");
+                }else{
+                    SimpleDateFormat hourFormatter = new SimpleDateFormat("HH:mm");
+                    hourNotification.setText(hourFormatter.format(hour));
+                }
+            }
+        });
     }
 }
