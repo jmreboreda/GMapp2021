@@ -10,17 +10,19 @@ import java.io.IOException;
 
 public class App extends Application
 {
-    public static void main( String[] args )
-    {
-        launch(args);
-
-    }
+//    public static void main( String[] args )
+//    {
+//        launch(args);
+//
+//    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
         MainController controller = new MainController();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(controller,770,650));
+        Scene scene = new Scene(controller,720,650);
+        //scene.getStylesheets().add(App.class.getResource("lcd.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

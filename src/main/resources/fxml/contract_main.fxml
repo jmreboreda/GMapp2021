@@ -16,17 +16,17 @@
                     <ContractData fx:id="contractData"/>
                 </Tab>
                 <Tab text="Horario">
-                    <ContractSchedule fx:id="schedule"/>
+                    <ContractSchedule fx:id="contractSchedule"/>
                 </Tab>
                 <Tab text="Notas gestor">
-                    <ContractPublicNotes fx:id="publicNotes"/>
+                    <ContractPublicNotes fx:id="contractPublicNotes"/>
                 </Tab>
                 <Tab text="Notas privadas">
-                    <ContractPrivateNotes fx:id="privateNotes"/>
+                    <ContractPrivateNotes fx:id="contractPrivateNotes"/>
                 </Tab>
             </tabs>
         </TabPane>
     <Line endX="770.0" stroke="#a4a0a0" />
     <CurrentContract fx:id="currentContract"/>
-    <ContractActionComponents fx:id="actionComponents"/>
+    <ContractActionComponents fx:id="contractActionComponents"/>
 </fx:root>
