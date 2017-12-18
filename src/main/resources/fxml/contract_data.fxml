@@ -13,29 +13,29 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Tipo" GridPane.rowIndex="1">
@@ -50,7 +50,7 @@
             </ChoiceBox>
             <TextField fx:id="descriptionContractOther" editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros&quot;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </GridPane.margin>
             </TextField>
             <Label text="Duración" GridPane.rowIndex="3">
@@ -60,7 +60,7 @@
             </Label>
             <ChoiceBox prefHeight="26.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </GridPane.margin>
             </ChoiceBox>
             <Label text="Desde" GridPane.columnIndex="3" GridPane.rowIndex="3">
@@ -85,7 +85,7 @@
             </Label>
             <ChoiceBox prefHeight="26.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </GridPane.margin>
             </ChoiceBox>
             <Label prefHeight="16.0" prefWidth="232.0" text="Horas de trabajo a la semana" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4">
@@ -111,7 +111,7 @@
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </GridPane.margin>
                <children>
                   <CheckBox mnemonicParsing="false" text="lunes">
@@ -174,10 +174,13 @@
             </HBox>
             <Label text="Categoría" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" />
+            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets top="12.0" />
+               </GridPane.margin></TextField>
             <DatePicker fx:id="dateFrom" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="12.0" />
