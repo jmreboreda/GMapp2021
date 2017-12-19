@@ -21,7 +21,6 @@ public class ContractData extends AnchorPane {
 
     private static final Logger logger = Logger.getLogger(ContractData.class.getSimpleName());
     private static final String CONTRACT_DATA_FXML = "/fxml/contract_data.fxml";
-    private static final String UNDEFINED_CONTRACT = "Indefinido";
     private static final String FULL_WORKDAY = "Completa";
 
     private Parent parent;
@@ -95,8 +94,9 @@ public class ContractData extends AnchorPane {
         this.dateTo = dateTo;
     }
 
-    public ContractData getData(){
+    public ContractData getAllData(){
         ContractData contractData = new ContractData();
+        contractData.setHourNotification(this.getHourNotification());
         contractData.setDateNotification(this.getDateNotification());
         contractData.setDateFrom(this.getDateFrom());
         contractData.setDateTo(this.getDateTo());
@@ -113,10 +113,11 @@ public class ContractData extends AnchorPane {
         DateTimeFormatter hourFormatter = DateTimeFormatter.ofPattern("HH:mm");
         hourNotification.setText(hourFormatter.format(LocalTime.now()));
 
-        setupHourListener();
+        hourNotificationControlSetup();
     }
 
     private void contractDurationControlSetup(){
+        radioButtonUndefinedContractDuration.setSelected(true);
         dateFrom.setConverter(Utilities.converter);
         dateFrom.showWeekNumbersProperty().set(false);
         dateFrom.setEditable(false);
@@ -128,7 +129,7 @@ public class ContractData extends AnchorPane {
         grContractDuration.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             public void changed(ObservableValue<? extends Toggle> ov,
                                 Toggle old_toggle, Toggle new_toggle) {
-                if (grContractDuration.getSelectedToggle().toString().contains(UNDEFINED_CONTRACT)) {
+                if(grContractDuration.getSelectedToggle() == radioButtonUndefinedContractDuration){
                     dateTo.setValue(null);
                     dateTo.setDisable(true);
                     temporalContractDurationDays.setText(null);
@@ -155,7 +156,7 @@ public class ContractData extends AnchorPane {
         });
     }
 
-    private void setupHourListener(){
+    private void hourNotificationControlSetup(){
         hourNotification.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (!newPropertyValue)
             {

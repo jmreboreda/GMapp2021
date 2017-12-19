@@ -5,12 +5,12 @@
       <options>
         <option name="appClass" value="gmoldes.App" />
         <option name="description" value="" />
-        <option name="height" value="650" />
+        <option name="height" value="700" />
         <option name="htmlPlaceholderId" value="" />
         <option name="title" value="" />
         <option name="vendor" value="" />
         <option name="version" value="" />
-        <option name="width" value="730" />
+        <option name="width" value="740" />
       </options>
     </properties>
     <root id="root">

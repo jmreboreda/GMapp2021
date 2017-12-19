@@ -63,14 +63,14 @@ public class MainController extends VBox {
     }
 
     private void onOkButton(MouseEvent event){
-        ContractData data = retrieveProvisionalContractData();
+        ContractData contractData = retrieveProvisionalContractData();
         System.out.println(event.getSource() + " clicked!\n"
-                + data.getDateNotification().getValue() +"\n"
-                + data.getDateFrom().getValue() + "\n"
-                + data.getDateTo().getValue());
+                + "Notificación cliente: " + contractData.getDateNotification().getValue() + " a las " + contractData.getHourNotification().getText() + "\n"
+                + "Fecha desde: " + contractData.getDateFrom().getValue() + "\n"
+                + "Fecha hasta: " + contractData.getDateTo().getValue());
     }
 
     private ContractData retrieveProvisionalContractData(){
-        return contractData.getData();
+        return contractData.getAllData();
     }
 }
