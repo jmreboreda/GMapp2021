@@ -21,24 +21,24 @@
                         <Insets left="15.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxHeight="26.0" maxWidth="345.0" minHeight="26.0" minWidth="345.0" prefHeight="26.0" prefWidth="345.0" promptText="Teclee el patrón de búsqueda para el empleador">
+                  <TextField maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleador">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <ListView maxHeight="150.0" maxWidth="345.0" minHeight="150.0" minWidth="345.0" prefHeight="150.0" prefWidth="345.0">
+                  <ListView maxHeight="210.0" maxWidth="385.0" minHeight="210.0" minWidth="385.0" prefHeight="210.0" prefWidth="385.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </ListView>
-                  <HBox maxWidth="374.0" prefHeight="31.0">
+                  <HBox maxWidth="396.0" prefHeight="31.0" prefWidth="396.0">
                      <children>
-                        <Label text="Código Cuenta Cotización">
+                        <Label maxHeight="16.0" maxWidth="175.0" minHeight="16.0" minWidth="175.0" prefHeight="16.0" prefWidth="175.0" text="Código Cuenta Cotización">
                            <HBox.margin>
                               <Insets left="10.0" top="8.0" />
                            </HBox.margin>
                         </Label>
-                        <ChoiceBox minWidth="159.0" prefHeight="26.0" prefWidth="169.0">
+                        <ChoiceBox minWidth="159.0" prefHeight="26.0" prefWidth="200.0">
                            <HBox.margin>
                               <Insets left="10.0" top="5.0" />
                            </HBox.margin>
@@ -58,19 +58,19 @@
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxHeight="26.0" maxWidth="345.0" minHeight="26.0" minWidth="345.0" prefHeight="26.0" prefWidth="345.0" promptText="Teclee el patrón de búsqueda para el empleado">
+                  <TextField maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleado">
                      <VBox.margin>
                         <Insets left="5.0" right="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <ListView maxHeight="150.0" maxWidth="345.0" minHeight="150.0" minWidth="345.0" prefHeight="150.0" prefWidth="345.0">
+                  <ListView maxHeight="210.0" maxWidth="385.0" minHeight="210.0" minWidth="385.0" prefHeight="210.0" prefWidth="385.0">
                      <VBox.margin>
                         <Insets left="5.0" right="10.0" />
                      </VBox.margin>
                   </ListView>
                   <Button minHeight="37.0" minWidth="135.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="135.0" text="Nuevo empleado" textAlignment="CENTER" textFill="#045c0d" wrapText="true">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="125.0" right="100.0" top="10.0" />
+                        <Insets bottom="10.0" left="150.0" right="100.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                </children>

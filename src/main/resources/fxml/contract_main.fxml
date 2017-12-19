@@ -26,7 +26,7 @@
                 </Tab>
             </tabs>
         </TabPane>
-    <Line endX="770.0" stroke="#a4a0a0" />
+    <Line endX="800.0" stroke="#a4a0a0" />
     <ProvisionalContractData fx:id="provisionalContractData"/>
     <ContractActionComponents fx:id="contractActionComponents"/>
 </fx:root>

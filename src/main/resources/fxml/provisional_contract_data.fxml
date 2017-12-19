@@ -23,13 +23,14 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Empleador:" wrapText="true">
@@ -129,83 +130,83 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <HBox prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5">
+            <HBox prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <CheckBox mnemonicParsing="false" text="lun">
+                  <CheckBox mnemonicParsing="false" text="lunes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="mar">
+                  <CheckBox mnemonicParsing="false" text="martes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="mié">
+                  <CheckBox mnemonicParsing="false" text="miércoles" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="jue">
+                  <CheckBox mnemonicParsing="false" text="jueves" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="vie">
+                  <CheckBox mnemonicParsing="false" text="viernes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="sáb">
+                  <CheckBox mnemonicParsing="false" text="sábado" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="dom">
+                  <CheckBox mnemonicParsing="false" text="domingo" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="7.0" top="5.0" />
+                        <Insets left="5.0" top="12.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -232,8 +233,14 @@
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="25.0" />
+               </GridPane.margin></Label>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
