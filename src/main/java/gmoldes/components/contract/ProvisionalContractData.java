@@ -5,16 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
-public class CurrentContract extends AnchorPane {
+public class ProvisionalContractData extends AnchorPane {
 
-    private static final String CURRENT_CONTRACT_FXML = "/fxml/current_contract.fxml";
+    private static final String CURRENT_CONTRACT_FXML = "/fxml/provisional_contract_data.fxml";
 
     private Parent parent;
 
     @FXML
-    private CurrentContract currentContract;
+    private ProvisionalContractData provisionalContractData;
 
-    public CurrentContract() {
+    public ProvisionalContractData() {
         this.parent = ViewLoader.load(this, CURRENT_CONTRACT_FXML);
     }
 }
