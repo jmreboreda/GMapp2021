@@ -2,16 +2,14 @@ package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
 import gmoldes.components.contract.*;
-import gmoldes.components.contract.events.ContractDataEvent;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class MainController extends VBox {
@@ -22,6 +20,8 @@ public class MainController extends VBox {
 
     private Parent parent;
 
+    @FXML
+    private TabPane tabPane;
     @FXML
     private ContractHeader contractHeader;
     @FXML
@@ -35,6 +35,8 @@ public class MainController extends VBox {
     @FXML
     private ContractPrivateNotes contractPrivateNotes;
     @FXML
+    private ProvisionalContractData provisionalContractData;
+    @FXML
     private ContractActionComponents contractActionComponents;
 
 
@@ -46,13 +48,29 @@ public class MainController extends VBox {
     @FXML
     public void initialize() {
         contractActionComponents.setOnOkButton(this::onOkButton);
+
+        tabPane.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+                refreshProvisionalContractData();
+            }
+        });
+    }
+
+    private void refreshProvisionalContractData(){
+        ContractData contractData = retrieveProvisionalContractData();
+        System.out.println("Cambiada pestaña ...");
     }
 
     private void onOkButton(MouseEvent event){
-        ContractData data = contractData.getData();
+        ContractData data = retrieveProvisionalContractData();
         System.out.println(event.getSource() + " clicked!\n"
                 + data.getDateNotification().getValue() +"\n"
                 + data.getDateFrom().getValue() + "\n"
                 + data.getDateTo().getValue());
+    }
+
+    private ContractData retrieveProvisionalContractData(){
+        return contractData.getData();
     }
 }

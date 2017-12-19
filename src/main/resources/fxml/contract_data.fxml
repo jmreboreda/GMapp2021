@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,29 +16,29 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Tipo" GridPane.rowIndex="1">
@@ -50,7 +53,7 @@
             </ChoiceBox>
             <TextField fx:id="descriptionContractOther" editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros&quot;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets top="12.0" />
+                  <Insets top="10.0" />
                </GridPane.margin>
             </TextField>
             <Label text="Duración" GridPane.rowIndex="3">
@@ -58,11 +61,6 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets top="12.0" />
-               </GridPane.margin>
-            </ChoiceBox>
             <Label text="Desde" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" top="12.0" />
@@ -73,7 +71,7 @@
                   <Insets left="5.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <TextField alignment="CENTER" editable="false" text="180 días" GridPane.columnIndex="7" GridPane.rowIndex="3">
+            <TextField fx:id="temporalContractDurationDays" alignment="CENTER" disable="true" editable="false" GridPane.columnIndex="7" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" top="12.0" />
                </GridPane.margin>
@@ -83,17 +81,12 @@
                   <Insets left="10.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets top="12.0" />
-               </GridPane.margin>
-            </ChoiceBox>
-            <Label prefHeight="16.0" prefWidth="232.0" text="Horas de trabajo a la semana" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4">
+            <Label prefHeight="16.0" prefWidth="159.0" text="Horas trabajo semana" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="15.0" top="12.0" />
                </GridPane.margin>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="143.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+            <TextField fx:id="hoursWorkDay" disable="true" prefHeight="26.0" prefWidth="143.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
@@ -111,7 +104,7 @@
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets top="12.0" />
+                  <Insets top="10.0" />
                </GridPane.margin>
                <children>
                   <CheckBox mnemonicParsing="false" text="lunes">
@@ -174,19 +167,16 @@
             </HBox>
             <Label text="Categoría" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="10.0" top="12.0" />
+                  <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6">
-               <GridPane.margin>
-                  <Insets top="12.0" />
-               </GridPane.margin></TextField>
+            <TextField promptText="Categoría laboral del trabajador" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" />
             <DatePicker fx:id="dateFrom" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker fx:id="dateTo" GridPane.columnIndex="6" GridPane.rowIndex="3">
+            <DatePicker fx:id="dateTo" disable="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="12.0" />
                </GridPane.margin>
@@ -206,6 +196,44 @@
                   <Insets left="5.0" top="10.0" />
                </GridPane.margin>
             </TextField>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <children>
+                  <Group fx:id="contractDurationGroup">
+                     <children>
+                        <RadioButton fx:id="radioButtonUndefinedContractDuration" mnemonicParsing="false" selected="true" text="Indefinido">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grContractDuration" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioButtonTemporalContractDuration" layoutX="89.0" mnemonicParsing="false" text="Temporal" toggleGroup="$grContractDuration">
+                           <padding>
+                              <Insets left="7.0" />
+                           </padding>
+                        </RadioButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets top="12.0" />
+                     </HBox.margin>
+                  </Group>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
+               <children>
+                  <RadioButton mnemonicParsing="false" selected="true" text="Completa">
+                     <HBox.margin>
+                        <Insets top="12.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grWorkDay" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Tiempo parcial" toggleGroup="$grWorkDay">
+                     <HBox.margin>
+                        <Insets left="7.0" top="12.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </children>
