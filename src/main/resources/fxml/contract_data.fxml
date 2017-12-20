@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane>
          <columnConstraints>
@@ -204,7 +204,7 @@
             </TextField>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
                <children>
-                  <RadioButton fx:id="radioButtonUndefinedContractDuration" maxHeight="18.0" maxWidth="90.0" minHeight="18.0" minWidth="90.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" selected="true" text="Indefinido">
+                  <RadioButton fx:id="radioButtonUndefinedContractDuration" maxHeight="18.0" maxWidth="95.0" minHeight="18.0" minWidth="95.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="95.0" selected="true" text="Indefinido">
                      <toggleGroup>
                         <ToggleGroup fx:id="grContractDuration" />
                      </toggleGroup>

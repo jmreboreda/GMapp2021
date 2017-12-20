@@ -1,4 +1,4 @@
-package gmoldes.components.contract;
+package gmoldes.components.contract.new_contract;
 
 import gmoldes.components.ViewLoader;
 import javafx.application.Platform;

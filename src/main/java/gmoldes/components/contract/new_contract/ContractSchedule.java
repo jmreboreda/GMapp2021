@@ -1,10 +1,8 @@
-package gmoldes.components.contract;
+package gmoldes.components.contract.new_contract;
 
 import gmoldes.components.ViewLoader;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class ContractSchedule extends AnchorPane {

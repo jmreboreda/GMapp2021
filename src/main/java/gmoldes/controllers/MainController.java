@@ -1,7 +1,7 @@
 package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
-import gmoldes.components.contract.*;
+import gmoldes.components.contract.new_contract.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

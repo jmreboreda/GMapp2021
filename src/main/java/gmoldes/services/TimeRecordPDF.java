@@ -1,4 +1,4 @@
-package gmoldes.utilities;
+package gmoldes.services;
 
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.pdf.AcroFields;
@@ -10,16 +10,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class CreateTimeRecordPDF {
+public class TimeRecordPDF {
 
     private static final String USER_HOME = System.getProperty("user.home");
     private static final String PATHIN = "/pdf_forms/DGM_002_Registro_Horario.pdf";
 
-    public static void createPDF(TimeRecord timeRecord) throws IOException, DocumentException {
+    public static String createPDF(TimeRecord timeRecord) throws IOException, DocumentException {
 
-        final String PATHOUT = USER_HOME + "/Escritorio/" + timeRecord.toString() + ".pdf";
+        final String pathOut = USER_HOME + "/Escritorio/" + timeRecord.toString() + ".pdf";
         PdfReader reader = new PdfReader(PATHIN);
-        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(PATHOUT));
+        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(pathOut));
 
         AcroFields timeRecordPDF = stamp.getAcroFields();
         HashMap map = timeRecordPDF.getFields();
@@ -35,5 +35,7 @@ public class CreateTimeRecordPDF {
 
         stamp.setFormFlattening(true);
         stamp.close();
+
+        return pathOut;
     }
 }

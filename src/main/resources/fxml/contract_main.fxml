@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import gmoldes.components.contract.*?>
+<?import gmoldes.components.contract.new_contract.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
