@@ -1,7 +1,6 @@
 package gmoldes.components.contract;
 
 import gmoldes.components.ViewLoader;
-import gmoldes.components.contract.events.ContractDataEvent;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

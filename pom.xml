@@ -19,6 +19,8 @@
     </build>
     <packaging>jar</packaging>
 
+
+
   <!--<name>gmapp</name>-->
   <!--<url>http://maven.apache.org</url>-->
 
@@ -27,6 +29,11 @@
   </properties>
 
   <dependencies>
+      <dependency>
+          <groupId>com.lowagie</groupId>
+          <artifactId>itext</artifactId>
+          <version>2.1.7</version>
+      </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

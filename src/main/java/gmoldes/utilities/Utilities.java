@@ -42,4 +42,11 @@ public class Utilities {
         }
         return hour;
     }
+
+    public static String replaceWithUnderscore(String aString){
+
+        return aString.replace(" ", "_")
+                .replace(".", "")
+                .replace(",","");
+    }
 }
