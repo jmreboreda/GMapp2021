@@ -1,4 +1,4 @@
-package gmoldes.domain.contract;
+package gmoldes.domain;
 
 public class Contract {
 

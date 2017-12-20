@@ -171,4 +171,12 @@ public class ContractData extends AnchorPane {
         });
     }
 
+    @Override
+    public String toString(){
+        return "Fecha notificación: " + this.getDateNotification().getValue() + "\n"
+                + "Hora notificación: " + this.getHourNotification().getText() + "\n"
+                + "Fecha desde: " + this.getDateFrom().getValue() + "\n"
+                + "Fecha hasta: " + this.getDateTo().getValue() + "\n";
+    }
+
 }

@@ -59,7 +59,10 @@ public class MainController extends VBox {
 
     private void refreshProvisionalContractData(){
         ContractData contractData = retrieveProvisionalContractData();
-        System.out.println("Cambiada pestaña ...");
+        provisionalContractData.refreshData(contractData);
+
+        System.out.println("Cambiada pestaña ...\nDatos:\n" + contractData.toString());
+
     }
 
     private void onOkButton(MouseEvent event){

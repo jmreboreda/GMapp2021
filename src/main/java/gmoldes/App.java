@@ -12,20 +12,20 @@ import javafx.stage.Stage;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class App extends Application{
 
     public static void main( String[] args ){
 
-        try {
-            createPDForm();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            createPDForm();
+//        } catch (IOException | DocumentException e) {
+//            e.printStackTrace();
+//        }
 
-        //launch(args);
+        launch(args);
 
     }
 
@@ -54,9 +54,14 @@ public class App extends Application{
                 "24,00"
         );
         pathToPDF = TimeRecordPDF.createPDF(timeRecord);
+        Map<String, String> attributes = new HashMap<>();
+        attributes.put("sides", "DUPLEX");
+        attributes.put("chromacity","MONOCHROME");
+        attributes.put("quality","HIGH");
+        attributes.put("orientation","LANDSCAPE");
 
         try {
-            Printer.print(pathToPDF);
+            Printer.print(pathToPDF, attributes);
         } catch (Exception e) {
             e.printStackTrace();
         }
