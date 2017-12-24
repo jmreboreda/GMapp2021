@@ -15,12 +15,12 @@
    <children>
       <GridPane>
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
@@ -55,8 +55,8 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="18.0" prefWidth="343.0" text="González Moldes, María Elena" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" />
-            <Label prefHeight="18.0" prefWidth="347.0" text="Reboreda Barcia, José Manuel" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+            <Label fx:id="employerName" prefHeight="18.0" prefWidth="343.0" text="González Moldes, María Elena" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+            <Label fx:id="employeeName" prefHeight="18.0" prefWidth="347.0" text="Reboreda Barcia, José Manuel" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
             <Label text="Contrato:" wrapText="true" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -68,7 +68,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="18.0" prefWidth="405.0" text="[510] De sustitución por riesgo para el embarazo" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+            <Label fx:id="contractType" prefHeight="18.0" prefWidth="405.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="2" />
             <Label text="Fecha Inicio:" wrapText="true" GridPane.rowIndex="3">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -91,7 +91,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label text="Duración contrato:" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Label text="Días duración contrato:" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -102,9 +102,9 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label fx:id="dateFrom" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" text="01-01-2018" textFill="#1807ac" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="dateTo" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" text="01-01-2018" textFill="#1807ac" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="114.0" text="180 días" textFill="#1807ac" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label fx:id="dateFrom" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="dateTo" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" textFill="#1807ac" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label fx:id="numDaysContract" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" textFill="#1807ac" GridPane.columnIndex="5" GridPane.rowIndex="3" />
             <Label text="Jornada:" wrapText="true" GridPane.rowIndex="4">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -116,9 +116,9 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="219.0" text="Jornada a tiempo parcial" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="114.0" text="22,00" textFill="#1807ac" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="114.0" text="Horas/Semana" textFill="#1807ac" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label fx:id="workDayType" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="numberHoursPerWeek" alignment="CENTER" prefHeight="18.0" prefWidth="114.0" textFill="#1807ac" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label prefHeight="18.0" prefWidth="114.0" text="Horas/Semana" textFill="#1807ac" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Label text="Días jornada:" wrapText="true" GridPane.rowIndex="5">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -228,7 +228,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label prefHeight="18.0" prefWidth="405.0" text="Ayudante de camarero" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+            <Label fx:id="laboralCategory" prefHeight="18.0" prefWidth="405.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
             <Label alignment="CENTER" prefHeight="16.0" prefWidth="228.0" text="Codigo Cuenta Cotización" GridPane.columnIndex="4" GridPane.columnSpan="2">
                <font>
                   <Font name="System Bold" size="10.0" />
@@ -237,7 +237,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <Label fx:id="cotizationCode" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="25.0" />
                </GridPane.margin></Label>

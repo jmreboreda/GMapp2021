@@ -12,12 +12,19 @@ import java.util.HashMap;
 
 public class TimeRecordPDF {
 
+    private static final String OS_ALIAS = System.getProperty("os.name");
     private static final String USER_HOME = System.getProperty("user.home");
     private static final String PATHIN = "/pdf_forms/DGM_002_Registro_Horario.pdf";
 
     public static String createPDF(TimeRecord timeRecord) throws IOException, DocumentException {
 
-        final String pathOut = USER_HOME + "/Escritorio/" + timeRecord.toString() + ".pdf";
+        String desktopDirName = null;
+        if(OS_ALIAS.toLowerCase().contains("windows")){
+            desktopDirName = "Desktop";
+        }else if(OS_ALIAS.toLowerCase().contains("linux")){
+            desktopDirName = "Escritorio";
+        }
+        final String pathOut = USER_HOME + "/" + desktopDirName + "/" + timeRecord.toString() + ".pdf";
         PdfReader reader = new PdfReader(PATHIN);
         PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(pathOut));
 

@@ -1,14 +1,12 @@
 package gmoldes.components.contract.new_contract;
 
 import gmoldes.components.ViewLoader;
-import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 public class ContractHeader extends HBox {
 
-    private static final String CONTRACT_HEADER_FXML = "/fxml/contract_header.fxml";
+    private static final String CONTRACT_HEADER_FXML = "/fxml/new_contract/contract_header.fxml";
 
     private Parent parent;
 

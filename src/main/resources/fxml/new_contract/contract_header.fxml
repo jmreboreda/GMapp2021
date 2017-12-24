@@ -36,7 +36,7 @@
             </Label>
             <ImageView pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../pics/GMapp_PNG_64x64.png" />
+                  <Image url="@../../pics/GMapp_PNG_64x64.png" />
                </image>
                <GridPane.margin>
                   <Insets left="10.0" />

@@ -2,6 +2,7 @@ package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
 import gmoldes.components.contract.new_contract.*;
+import gmoldes.domain.dto.ProvisionalContractDataDTO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -12,11 +13,11 @@ import javafx.scene.layout.VBox;
 
 import java.util.logging.Logger;
 
-public class MainController extends VBox {
+public class NewContractMainController extends VBox {
 
 
-    private static final Logger logger = Logger.getLogger(MainController.class.getSimpleName());
-    private static final String MAIN_FXML = "/fxml/contract_main.fxml";
+    private static final Logger logger = Logger.getLogger(NewContractMainController.class.getSimpleName());
+    private static final String MAIN_FXML = "/fxml/new_contract/contract_main.fxml";
 
     private Parent parent;
 
@@ -40,7 +41,7 @@ public class MainController extends VBox {
     private ContractActionComponents contractActionComponents;
 
 
-    public MainController() {
+    public NewContractMainController() {
         logger.info("Initilizing Main fxml");
         this.parent = ViewLoader.load(this, MAIN_FXML);
     }
@@ -58,22 +59,21 @@ public class MainController extends VBox {
     }
 
     private void refreshProvisionalContractData(){
-        ContractData contractData = retrieveProvisionalContractData();
-        provisionalContractData.refreshData(contractData);
-
-        System.out.println("Cambiada pestaña ...\nDatos:\n" + contractData.toString());
-
+        ProvisionalContractDataDTO contractDataDTO = retrieveProvisionalContractDataDTO();
+        provisionalContractData.refreshData(contractDataDTO);
     }
 
     private void onOkButton(MouseEvent event){
-        ContractData contractData = retrieveProvisionalContractData();
-        System.out.println(event.getSource() + " clicked!\n"
-                + "Notificación cliente: " + contractData.getDateNotification().getValue() + " a las " + contractData.getHourNotification().getText() + "\n"
-                + "Fecha desde: " + contractData.getDateFrom().getValue() + "\n"
-                + "Fecha hasta: " + contractData.getDateTo().getValue());
+        System.out.println(event.getSource() + " clicked!\n");
     }
 
-    private ContractData retrieveProvisionalContractData(){
-        return contractData.getAllData();
+    private ProvisionalContractDataDTO retrieveProvisionalContractDataDTO(){
+        ProvisionalContractDataDTO partsDTO = contractParts.getAllData();
+        ProvisionalContractDataDTO dataDTO = contractData.getAllData();
+        dataDTO.setEmployerFullName(partsDTO.getEmployerFullName());
+        dataDTO.setEmployeeFullName(partsDTO.getEmployeeFullName());
+        dataDTO.setCcc(partsDTO.getCcc());
+
+        return dataDTO;
     }
 }

@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class ContractPrivateNotes extends AnchorPane {
 
-    private static final String PRIVATE_NOTES_FXML = "/fxml/contract_private_notes.fxml";
+    private static final String PRIVATE_NOTES_FXML = "/fxml/new_contract/contract_private_notes.fxml";
 
     private Parent parent;
 

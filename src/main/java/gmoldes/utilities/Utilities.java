@@ -2,6 +2,10 @@ package gmoldes.utilities;
 
 import javafx.util.StringConverter;
 
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,8 +49,15 @@ public class Utilities {
 
     public static String replaceWithUnderscore(String aString){
 
-        return aString.replace(" ", "_")
+        return aString.replace(". ", "")
                 .replace(".", "")
-                .replace(",","");
+                .replace(",", "")
+                .replace(" ", "_");
     }
+
+    public static void deleteFileFromPath(String pathToFile) throws IOException {
+        Path path = FileSystems.getDefault().getPath(pathToFile);
+        Files.delete(path);
+    }
+
 }

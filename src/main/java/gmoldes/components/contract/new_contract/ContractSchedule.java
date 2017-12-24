@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class ContractSchedule extends AnchorPane {
 
-    private static final String SCHEDULE_FXML = "/fxml/contratct_schedule.fxml";
+    private static final String SCHEDULE_FXML = "/fxml/new_contract/contract_schedule.fxml";
 
     private Parent parent;
 

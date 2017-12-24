@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class ContractActionComponents extends AnchorPane {
 
-    private static final String CURRENT_CONTRACT_FXML = "/fxml/contract_action_components.fxml";
+    private static final String CURRENT_CONTRACT_FXML = "/fxml/new_contract/contract_action_components.fxml";
 
     private Parent parent;
 
