@@ -60,4 +60,15 @@ public class Utilities {
         Files.delete(path);
     }
 
+    public static boolean validateDate(String date) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            dateFormat.setLenient(false);
+            dateFormat.parse(date);
+        } catch (ParseException e) {
+            return false;
+        }
+
+        return true;
+    }
 }
