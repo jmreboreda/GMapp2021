@@ -10,11 +10,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.beans.value.ChangeListener;
+import sun.security.provider.Sun;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 
@@ -59,6 +63,20 @@ public class ContractData extends AnchorPane {
     private RadioButton radioButtonFullWorkDay;
     @FXML
     private RadioButton radioButtonPartialWorkDay;
+    @FXML
+    private CheckBox Monday;
+    @FXML
+    private CheckBox Tuesday;
+    @FXML
+    private CheckBox Wednesday;
+    @FXML
+    private CheckBox Thursday;
+    @FXML
+    private CheckBox Friday;
+    @FXML
+    private CheckBox Saturday;
+    @FXML
+    private CheckBox Sunday;
     @FXML
     private TextField laboralCategory;
 
@@ -186,6 +204,38 @@ public class ContractData extends AnchorPane {
             }
         }
 
+        Map<String, Boolean> daysWeekToWork = new HashMap<>();
+        daysWeekToWork.put("Monday", false);
+        daysWeekToWork.put("Tuesday", false);
+        daysWeekToWork.put("Wednesday", false);
+        daysWeekToWork.put("Thursday", false);
+        daysWeekToWork.put("Friday", false);
+        daysWeekToWork.put("Saturday", false);
+        daysWeekToWork.put("Sunday", false);
+
+        if(Monday.isSelected()){
+            daysWeekToWork.put("Monday", true);
+        }
+        if(Tuesday.isSelected()){
+            daysWeekToWork.put("Tuesday", true);
+        }
+        if(Wednesday.isSelected()){
+            daysWeekToWork.put("Wednesday", true);
+        }
+        if(Thursday.isSelected()){
+            daysWeekToWork.put("Thursday", true);
+        }
+        if(Friday.isSelected()){
+            daysWeekToWork.put("Friday", true);
+        }
+        if(Saturday.isSelected()){
+            daysWeekToWork.put("Saturday", true);
+        }
+        if(Sunday.isSelected()){
+            daysWeekToWork.put("Sunday", true);
+        }
+
+
         String laboralCategory = "";
         if(this.getLaboralCategory().getText() != null){
             laboralCategory = this.getLaboralCategory().getText();
@@ -198,7 +248,7 @@ public class ContractData extends AnchorPane {
                 .withDurationDays(durationContract)
                 .withWorkDayType(workDayType)
                 .withNumberHoursPerWeek(numberHoursPerWeek)
-                .withDaysWeekToWork("")
+                .withDaysWeekToWork(daysWeekToWork)
                 .withLaboralCategory(laboralCategory)
                 .build();
     }

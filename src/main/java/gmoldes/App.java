@@ -5,7 +5,6 @@ import com.lowagie.text.DocumentException;
 import gmoldes.controllers.NewContractMainController;
 import gmoldes.forms.TimeRecord;
 import gmoldes.services.Printer;
-import gmoldes.services.TimeRecordPDF;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -42,19 +41,17 @@ public class App extends Application{
 
     private static void createPDForm() throws IOException, DocumentException, PrinterException {
 
-        String pathToPDF = null;
-        PDDocument pdf = null;
+        TimeRecord timeRecord = TimeRecord.create()
+                .withNameOfMonth("enero")
+                .withYearNumber("2018")
+                .withEnterpriseName("Calidad y Gestión Medioambiental TRILLIUM S. L.")
+                .withQuoteAccountCode("36012598712")
+                .withEmployeeName("Millán Bermúdez, María de la Consolación")
+                .withEmployeeNIF("35.897.475-H")
+                .withNumberHoursPerWeek("24,00")
+                .build();
 
-        TimeRecord timeRecord = new TimeRecord(
-                "enero",
-                "2018",
-                "Centro de Día REDONDELA S. L.",
-                "36012598712",
-                "Couñago Allú, Magaly",
-                "35.897.475-H",
-                "20,00"
-        );
-        pathToPDF = TimeRecordPDF.createPDF(timeRecord);
+        String pathToTimeRecordPDF = TimeRecord.createPDF(timeRecord);
         Map<String, String> attributes = new HashMap<>();
         attributes.put("papersize","A4");
         attributes.put("sides", "DUPLEX");
@@ -62,7 +59,7 @@ public class App extends Application{
         attributes.put("orientation","LANDSCAPE");
 
 
-        Printer.printPDF(pathToPDF, attributes);
+        Printer.printPDF(pathToTimeRecordPDF, attributes);
         //Utilities.deleteFileFromPath(pathToPDF);
 
         System.exit(0);

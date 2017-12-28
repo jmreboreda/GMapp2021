@@ -130,12 +130,12 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <HBox prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
+            <HBox fx:id="hBoxDaysWeekToWork" prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <CheckBox mnemonicParsing="false" text="lunes" textFill="#1807ac">
+                  <CheckBox fx:id="Monday" focusTraversable="false" mnemonicParsing="false" text="lunes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="martes" textFill="#1807ac">
+                  <CheckBox fx:id="Tuesday" focusTraversable="false" mnemonicParsing="false" text="martes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -157,7 +157,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="miércoles" textFill="#1807ac">
+                  <CheckBox fx:id="Wednesday" focusTraversable="false" mnemonicParsing="false" text="miércoles" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -168,7 +168,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="jueves" textFill="#1807ac">
+                  <CheckBox fx:id="Thursday" focusTraversable="false" mnemonicParsing="false" text="jueves" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -179,7 +179,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="viernes" textFill="#1807ac">
+                  <CheckBox fx:id="Friday" focusTraversable="false" mnemonicParsing="false" text="viernes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -190,7 +190,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="sábado" textFill="#1807ac">
+                  <CheckBox fx:id="Saturday" focusTraversable="false" mnemonicParsing="false" text="sábado" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -201,7 +201,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="domingo" textFill="#1807ac">
+                  <CheckBox fx:id="Sunday" focusTraversable="false" mnemonicParsing="false" text="domingo" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -237,7 +237,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label fx:id="cotizationCode" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <Label fx:id="quoteAccountCode" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="25.0" />
                </GridPane.margin></Label>

@@ -46,12 +46,12 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="contractType" prefHeight="26.0" prefWidth="436.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1">
+            <ChoiceBox fx:id="contractType" prefHeight="26.0" prefWidth="624.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </ChoiceBox>
-            <TextField fx:id="descriptionContractOther" editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros&quot;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="2">
+            <TextField fx:id="descriptionContractOther" editable="false" prefHeight="26.0" prefWidth="379.0" promptText="Descripción del tipo de contrato &quot;Otros tipos de contrato sin descripción específica&quot;" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -110,7 +110,7 @@
                   <Insets top="12.0" />
                </GridPane.margin>
                <children>
-                  <CheckBox mnemonicParsing="false" text="lunes">
+                  <CheckBox fx:id="Monday" mnemonicParsing="false" text="lunes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -118,7 +118,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="martes">
+                  <CheckBox fx:id="Tuesday" mnemonicParsing="false" text="martes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -126,7 +126,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="miércoles">
+                  <CheckBox fx:id="Wednesday" mnemonicParsing="false" text="miércoles">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -134,7 +134,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="jueves">
+                  <CheckBox fx:id="Thursday" mnemonicParsing="false" text="jueves">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -142,7 +142,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="viernes">
+                  <CheckBox fx:id="Friday" mnemonicParsing="false" text="viernes">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -150,7 +150,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="sábado">
+                  <CheckBox fx:id="Saturday" mnemonicParsing="false" text="sábado">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -158,7 +158,7 @@
                         <Insets left="5.0" top="2.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="domingo">
+                  <CheckBox fx:id="Sunday" mnemonicParsing="false" text="domingo">
                      <font>
                         <Font size="10.0" />
                      </font>

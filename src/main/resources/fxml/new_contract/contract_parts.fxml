@@ -21,7 +21,7 @@
                         <Insets left="15.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="employerName" maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleador">
+                  <TextField fx:id="employerName" maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleador" style="-fx-text-inner-color: blue;">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -58,7 +58,7 @@
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="employeeName" maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleado">
+                  <TextField fx:id="employeeName" maxHeight="26.0" maxWidth="385.0" minHeight="26.0" minWidth="385.0" prefHeight="26.0" prefWidth="385.0" promptText="Teclee el patrón de búsqueda para el empleado" style="-fx-text-inner-color: blue;">
                      <VBox.margin>
                         <Insets left="5.0" right="10.0" />
                      </VBox.margin>

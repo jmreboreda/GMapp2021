@@ -54,7 +54,7 @@ public class ContractParts extends HBox {
 
         return ProvisionalContractDataDTO.create()
                 .withEmployerFullName(employerName)
-                .withCcc(CCC)
+                .withQuoteAccountCode(CCC)
                 .withEmployeeFullName(employeeName)
                 .build();
     }

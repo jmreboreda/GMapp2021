@@ -72,7 +72,7 @@ public class NewContractMainController extends VBox {
         ProvisionalContractDataDTO dataDTO = contractData.getAllData();
         dataDTO.setEmployerFullName(partsDTO.getEmployerFullName());
         dataDTO.setEmployeeFullName(partsDTO.getEmployeeFullName());
-        dataDTO.setCcc(partsDTO.getCcc());
+        dataDTO.setQuoteAccountCode(partsDTO.getQuoteAccountCode());
 
         return dataDTO;
     }

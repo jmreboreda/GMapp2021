@@ -1,25 +1,27 @@
 package gmoldes.domain.dto;
 
+import java.util.Map;
+
 public class ProvisionalContractDataDTO {
 
     private String employerFullName;
     private String employeeFullName;
-    private String ccc;
+    private String quoteAccountCode;
     private String contractType;
     private String dateFrom;
     private String dateTo;
     private String durationDays;
     private String workDayType;
     private String numberHoursPerWeek;
-    private String daysWeekToWork;
+    private Map<String, Boolean> daysWeekToWork;
     private String laboralCategory;
 
-    public ProvisionalContractDataDTO(String employerFullName, String employeeFullName, String ccc, String contractType,
+    public ProvisionalContractDataDTO(String employerFullName, String employeeFullName, String quoteAccountCode, String contractType,
                                       String dateFrom, String dateTo, String durationDays, String workDayType,
-                                      String numberHoursPerWeek, String daysWeekToWork, String laboralCategory) {
+                                      String numberHoursPerWeek, Map<String, Boolean> daysWeekToWork, String laboralCategory) {
         this.employerFullName = employerFullName;
         this.employeeFullName = employeeFullName;
-        this.ccc = ccc;
+        this.quoteAccountCode = quoteAccountCode;
         this.contractType = contractType;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
@@ -46,12 +48,12 @@ public class ProvisionalContractDataDTO {
         this.employeeFullName = employeeFullName;
     }
 
-    public String getCcc() {
-        return ccc;
+    public String getQuoteAccountCode() {
+        return quoteAccountCode;
     }
 
-    public void setCcc(String ccc) {
-        this.ccc = ccc;
+    public void setQuoteAccountCode(String quoteAccountCode) {
+        this.quoteAccountCode = quoteAccountCode;
     }
 
     public String getContractType() {
@@ -102,11 +104,11 @@ public class ProvisionalContractDataDTO {
         this.numberHoursPerWeek = numberHoursPerWeek;
     }
 
-    public String getDaysWeekToWork() {
+    public Map<String, Boolean> getDaysWeekToWork() {
         return daysWeekToWork;
     }
 
-    public void setDaysWeekToWork(String daysWeekToWork) {
+    public void setDaysWeekToWork(Map<String, Boolean> daysWeekToWork) {
         this.daysWeekToWork = daysWeekToWork;
     }
 
@@ -126,14 +128,14 @@ public class ProvisionalContractDataDTO {
 
         private String employerFullName;
         private String employeeFullName;
-        private String ccc;
+        private String quoteAccountCode;
         private String contractType;
         private String dateFrom;
         private String dateTo;
         private String durationDays;
         private String workDayType;
         private String numberHoursPerWeek;
-        private String daysWeekToWork;
+        private Map<String, Boolean> daysWeekToWork;
         private String laboralCategory;
 
         public ProvisionalContractDataDTO.DataBuilder withEmployerFullName (String employerFullName) {
@@ -146,8 +148,8 @@ public class ProvisionalContractDataDTO {
             return this;
         }
 
-        public ProvisionalContractDataDTO.DataBuilder withCcc(String ccc) {
-            this.ccc = ccc;
+        public ProvisionalContractDataDTO.DataBuilder withQuoteAccountCode(String quoteAccountCode) {
+            this.quoteAccountCode = quoteAccountCode;
             return this;
         }
 
@@ -181,7 +183,7 @@ public class ProvisionalContractDataDTO {
             return this;
         }
 
-        public ProvisionalContractDataDTO.DataBuilder withDaysWeekToWork(String daysWeekToWork) {
+        public ProvisionalContractDataDTO.DataBuilder withDaysWeekToWork(Map<String, Boolean> daysWeekToWork) {
             this.daysWeekToWork = daysWeekToWork;
             return this;
         }
@@ -192,7 +194,7 @@ public class ProvisionalContractDataDTO {
         }
 
         public ProvisionalContractDataDTO build() {
-            return new ProvisionalContractDataDTO(this.employerFullName, this.employeeFullName, this.ccc, this.contractType, this.dateFrom,
+            return new ProvisionalContractDataDTO(this.employerFullName, this.employeeFullName, this.quoteAccountCode, this.contractType, this.dateFrom,
             this.dateTo, this.durationDays, this.workDayType, this.numberHoursPerWeek, this.daysWeekToWork, this.laboralCategory);
         }
     }

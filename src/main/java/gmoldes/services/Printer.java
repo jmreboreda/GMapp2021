@@ -14,19 +14,21 @@ import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.*;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
+import org.apache.pdfbox.pdmodel.common.PDMetadata;
 import org.apache.pdfbox.pdmodel.interactive.viewerpreferences.PDViewerPreferences;
 import org.apache.pdfbox.printing.PDFPageable;
 
 public class Printer {
 
-    private static final String DEFAULT_PRINTER_STRING = "KONICA MINOLTA";
+    private static final String DEFAULT_PRINTER = "KONICA MINOLTA";
 
     public static void printPDF(String pathToPDF, Map<String, String> printAttributes) throws IOException, PrinterException {
 
         PrintService serviceForPrint = null;
         PDDocument PDFDocumentLoaded = PDDocument.load(new File(pathToPDF));
 
-        PDViewerPreferences PDFDocumentPreferences = PDFDocumentLoaded.getDocumentCatalog().getViewerPreferences();
+        //PDViewerPreferences PDFDocumentPreferences = PDFDocumentLoaded.getDocumentCatalog().getViewerPreferences();
 
         PrintRequestAttributeSet datts = new HashPrintRequestAttributeSet();
         MediaSizeName DINA4 = MediaSize.ISO.A4.getMediaSizeName();
@@ -57,13 +59,13 @@ public class Printer {
 
         PrintService[] printServices = findPrintService(datts);
         if(printServices.length == 0){
-            System.out.println("No printer can printPDF the document ...");
+            System.out.println("No printer can print the PDF with those attributes...");
         }
         else {
             for(PrintService printService : printServices){
 //                AttributeSet attributes = getAttributesForPrintService(printService);
 //                DocFlavor[] docF = getSupportedDocFlavorForPrintService(printService);
-                if(printService.getName().contains(DEFAULT_PRINTER_STRING)){
+                if(printService.getName().contains(DEFAULT_PRINTER)){
                     serviceForPrint = printService;
                     break;
                 }else {
