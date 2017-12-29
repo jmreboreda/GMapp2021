@@ -4,15 +4,17 @@ package gmoldes;
 import com.lowagie.text.DocumentException;
 import gmoldes.controllers.NewContractMainController;
 import gmoldes.forms.TimeRecord;
+import gmoldes.persistence.dao.ClientDAO;
+import gmoldes.persistence.vo.ClientVO;
 import gmoldes.services.Printer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.pdfbox.pdmodel.PDDocument;
 
 import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class App extends Application{
@@ -37,6 +39,12 @@ public class App extends Application{
         scene.getStylesheets().add(App.class.getResource("/css_stylesheet/application.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        ClientDAO clientDAO = ClientDAO.ClientDAOFactory.getInstance();
+        List<ClientVO> clientVOList = clientDAO.findAllClientFromNamePatternInAlphabeticalOrder("a");
+        for(ClientVO clientVO : clientVOList) {
+            System.out.println(clientVO.getNom_rzsoc() + ", cliente de "  + clientVO.getTipoclte() + ", activo: " + clientVO.getCltactivo());
+        }
     }
 
     private static void createPDForm() throws IOException, DocumentException, PrinterException {

@@ -3,6 +3,8 @@ package gmoldes.controllers;
 import gmoldes.components.ViewLoader;
 import gmoldes.components.contract.new_contract.*;
 import gmoldes.domain.dto.ProvisionalContractDataDTO;
+import gmoldes.persistence.dao.ClientDAO;
+import gmoldes.persistence.vo.ClientVO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -11,6 +13,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class NewContractMainController extends VBox {
@@ -44,12 +47,12 @@ public class NewContractMainController extends VBox {
     public NewContractMainController() {
         logger.info("Initilizing Main fxml");
         this.parent = ViewLoader.load(this, MAIN_FXML);
+
     }
 
     @FXML
     public void initialize() {
         contractActionComponents.setOnOkButton(this::onOkButton);
-
         tabPane.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {

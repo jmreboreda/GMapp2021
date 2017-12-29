@@ -3,15 +3,13 @@ package gmoldes.components.contract.new_contract;
 import gmoldes.components.ViewLoader;
 import gmoldes.domain.dto.ProvisionalContractDataDTO;
 import gmoldes.utilities.Utilities;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
-import javafx.beans.value.ChangeListener;
-import sun.security.provider.Sun;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,8 +26,6 @@ public class ContractData extends AnchorPane {
     private static final String CONTRACT_DATA_FXML = "/fxml/new_contract/contract_data.fxml";
     private static final String FULL_WORKDAY = "A tiempo completo";
     private static final String PARTIAL_WORKDAY = "A tiempo parcial";
-
-
     private static final String UNDEFINED_DURATION = "Indefinido";
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -81,7 +77,10 @@ public class ContractData extends AnchorPane {
     private TextField laboralCategory;
 
     public ContractData() {
+
         this.parent = ViewLoader.load(this, CONTRACT_DATA_FXML);
+        this.dateFrom.setOnAction(this::onDateAction);
+        this.dateTo.setOnAction(this::onDateAction);
     }
 
     @FXML
@@ -158,6 +157,15 @@ public class ContractData extends AnchorPane {
 
     public void setLaboralCategory(TextField laboralCategory) {
         this.laboralCategory = laboralCategory;
+    }
+
+    private void onDateAction(ActionEvent actionEvent){
+        if(this.getDateTo().getValue() != null && this.getDateFrom().getValue() != null) {
+            Long durationContractCalc = (this.getDateTo().getValue().toEpochDay() - this.getDateFrom().getValue().toEpochDay() + 1);
+            this.durationDaysContract.setText(durationContractCalc.toString());
+        }else{
+            this.durationDaysContract.setText("");
+        }
     }
 
     public ProvisionalContractDataDTO getAllData(){

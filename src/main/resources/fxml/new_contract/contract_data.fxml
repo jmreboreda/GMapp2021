@@ -200,7 +200,7 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </DatePicker>
-            <TextField fx:id="hourNotification" GridPane.columnIndex="2">
+            <TextField fx:id="hourNotification" promptText="hh:mm" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" top="10.0" />
                </GridPane.margin>

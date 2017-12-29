@@ -130,12 +130,12 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <HBox fx:id="hBoxDaysWeekToWork" prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
+            <HBox prefHeight="20.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="5">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <CheckBox fx:id="Monday" focusTraversable="false" mnemonicParsing="false" text="lunes" textFill="#1807ac">
+                  <CheckBox fx:id="Monday" mnemonicParsing="false" text="lunes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Tuesday" focusTraversable="false" mnemonicParsing="false" text="martes" textFill="#1807ac">
+                  <CheckBox fx:id="Tuesday" mnemonicParsing="false" text="martes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -157,7 +157,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Wednesday" focusTraversable="false" mnemonicParsing="false" text="miércoles" textFill="#1807ac">
+                  <CheckBox fx:id="Wednesday" mnemonicParsing="false" text="miércoles" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -168,7 +168,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Thursday" focusTraversable="false" mnemonicParsing="false" text="jueves" textFill="#1807ac">
+                  <CheckBox fx:id="Thursday" mnemonicParsing="false" text="jueves" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -179,7 +179,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Friday" focusTraversable="false" mnemonicParsing="false" text="viernes" textFill="#1807ac">
+                  <CheckBox fx:id="Friday" mnemonicParsing="false" text="viernes" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -190,7 +190,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Saturday" focusTraversable="false" mnemonicParsing="false" text="sábado" textFill="#1807ac">
+                  <CheckBox fx:id="Saturday" mnemonicParsing="false" text="sábado" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -201,7 +201,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </CheckBox>
-                  <CheckBox fx:id="Sunday" focusTraversable="false" mnemonicParsing="false" text="domingo" textFill="#1807ac">
+                  <CheckBox fx:id="Sunday" mnemonicParsing="false" text="domingo" textFill="#1807ac">
                      <font>
                         <Font size="10.0" />
                      </font>

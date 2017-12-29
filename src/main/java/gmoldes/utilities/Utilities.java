@@ -39,6 +39,7 @@ public class Utilities {
     public static Date verifyHourValue(String time){
         Date hour;
         DateFormat hourFormatter = new SimpleDateFormat("HH:mm");
+        hourFormatter.setLenient(false);
         try{
             hour = hourFormatter.parse(time);
         }catch(ParseException e){

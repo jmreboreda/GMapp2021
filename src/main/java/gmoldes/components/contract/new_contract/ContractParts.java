@@ -34,6 +34,7 @@ public class ContractParts extends HBox {
 
 
     public ContractParts() {
+
         this.parent = ViewLoader.load(this, CONTRACT_PARTS_FXML);
     }
 
