@@ -9,20 +9,18 @@ import java.util.Date;
 @Table(name = "clientes", uniqueConstraints = {@UniqueConstraint(columnNames = {"nifcif", "nifcif_dup"})})
 @NamedQueries(value = {
         @NamedQuery(
-                name = ClientVO.FIND_ALL_CLIENT_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER,
-                query = " select p from ClientVO as p " +
-                        " where lower(p.nom_rzsoc) like lower(:code) order by p.nom_rzsoc"
+                name = ClientVO.FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER,
+                query = " select p from ClientVO as p where lower(p.nom_rzsoc) like lower(:code) and p.cltactivo = true order by p.nom_rzsoc"
         ),
         @NamedQuery(
                 name = ClientVO.FIND_CLIENT_BY_SAME_NAME,
-                query = " select p from ClientVO as p " +
-                        " where p.nom_rzsoc = :nom_rzsoc "
+                query = " select p from ClientVO as p where p.nom_rzsoc = :nom_rzsoc"
         )
 })
 
 public class ClientVO implements Serializable {
 
-    public static final String FIND_ALL_CLIENT_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER = "ClientVO.FIND_ALL_CLIENT_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER";
+    public static final String FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER = "ClientVO.FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER";
 
     public static final String FIND_CLIENT_BY_SAME_NAME = "ClientVO.FIND_CLIENT_BY_SAME_NAME";
 

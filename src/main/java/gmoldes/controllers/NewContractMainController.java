@@ -2,9 +2,10 @@ package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
 import gmoldes.components.contract.new_contract.*;
+import gmoldes.components.contract.new_contract.events.SearchEmployersEvent;
+import gmoldes.domain.dto.ClientDTO;
 import gmoldes.domain.dto.ProvisionalContractDataDTO;
-import gmoldes.persistence.dao.ClientDAO;
-import gmoldes.persistence.vo.ClientVO;
+import gmoldes.manager.ClientManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -21,6 +22,8 @@ public class NewContractMainController extends VBox {
 
     private static final Logger logger = Logger.getLogger(NewContractMainController.class.getSimpleName());
     private static final String MAIN_FXML = "/fxml/new_contract/contract_main.fxml";
+
+    private ClientManager clientManager = new ClientManager();
 
     private Parent parent;
 
@@ -47,7 +50,6 @@ public class NewContractMainController extends VBox {
     public NewContractMainController() {
         logger.info("Initilizing Main fxml");
         this.parent = ViewLoader.load(this, MAIN_FXML);
-
     }
 
     @FXML
@@ -59,6 +61,9 @@ public class NewContractMainController extends VBox {
                 refreshProvisionalContractData();
             }
         });
+
+        contractParts.setOnSearchEmployers(this::onSearchEmployers);
+
     }
 
     private void refreshProvisionalContractData(){
@@ -78,5 +83,22 @@ public class NewContractMainController extends VBox {
         dataDTO.setQuoteAccountCode(partsDTO.getQuoteAccountCode());
 
         return dataDTO;
+    }
+
+    private void onSearchEmployers(SearchEmployersEvent searchPersonsEvent){
+        String pattern = searchPersonsEvent.getPattern();
+        if(pattern == null){
+            pattern = "";
+        }
+        if(pattern.isEmpty()){
+            contractParts.clearEmployersData();
+            return;
+        }
+        List<ClientDTO> employers = findClientsByNamePattern(pattern);
+        contractParts.refreshEmployers(employers);
+    }
+
+    private List<ClientDTO> findClientsByNamePattern(String pattern){
+        return clientManager.findAllActiveClientByNamePatternInAlphabeticalOrder(pattern);
     }
 }
