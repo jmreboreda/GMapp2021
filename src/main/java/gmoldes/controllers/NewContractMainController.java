@@ -2,10 +2,13 @@ package gmoldes.controllers;
 
 import gmoldes.components.ViewLoader;
 import gmoldes.components.contract.new_contract.*;
+import gmoldes.components.contract.new_contract.events.SearchEmployeesEvent;
 import gmoldes.components.contract.new_contract.events.SearchEmployersEvent;
 import gmoldes.domain.dto.ClientDTO;
+import gmoldes.domain.dto.PersonDTO;
 import gmoldes.domain.dto.ProvisionalContractDataDTO;
 import gmoldes.manager.ClientManager;
+import gmoldes.manager.PersonManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -24,6 +27,7 @@ public class NewContractMainController extends VBox {
     private static final String MAIN_FXML = "/fxml/new_contract/contract_main.fxml";
 
     private ClientManager clientManager = new ClientManager();
+    private PersonManager personManager = new PersonManager();
 
     private Parent parent;
 
@@ -63,6 +67,7 @@ public class NewContractMainController extends VBox {
         });
 
         contractParts.setOnSearchEmployers(this::onSearchEmployers);
+        contractParts.setOnSearchEmployees(this::onSearchEmployees);
 
     }
 
@@ -85,8 +90,9 @@ public class NewContractMainController extends VBox {
         return dataDTO;
     }
 
-    private void onSearchEmployers(SearchEmployersEvent searchPersonsEvent){
-        String pattern = searchPersonsEvent.getPattern();
+    private void onSearchEmployers(SearchEmployersEvent searchEmployersEvent){
+        String pattern = searchEmployersEvent.getPattern();
+        String employersNameSelectedItem = searchEmployersEvent.getEmployersNameSelectedItem();
         if(pattern == null){
             pattern = "";
         }
@@ -94,11 +100,35 @@ public class NewContractMainController extends VBox {
             contractParts.clearEmployersData();
             return;
         }
+        if(pattern.equals(employersNameSelectedItem)){
+            return;
+        }
         List<ClientDTO> employers = findClientsByNamePattern(pattern);
         contractParts.refreshEmployers(employers);
     }
 
+    private void onSearchEmployees(SearchEmployeesEvent searchEmployeesEvent){
+        String pattern = searchEmployeesEvent.getPattern();
+        String employeesNameSelectedItem = searchEmployeesEvent.getEmployeesNameSelectedItem();
+        if(pattern == null){
+            pattern = "";
+        }
+        if(pattern.isEmpty()){
+            contractParts.clearEmployeesData();
+            return;
+        }
+        if(pattern.equals(employeesNameSelectedItem)){
+            return;
+        }
+        List<PersonDTO> employees = findPersonsByNamePattern(pattern);
+        contractParts.refreshEmployees(employees);
+    }
+
     private List<ClientDTO> findClientsByNamePattern(String pattern){
         return clientManager.findAllActiveClientByNamePatternInAlphabeticalOrder(pattern);
+    }
+
+    private List<PersonDTO> findPersonsByNamePattern(String pattern){
+        return personManager.findAllPersonsByNamePatternInAlphabeticalOrder(pattern);
     }
 }
