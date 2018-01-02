@@ -89,7 +89,6 @@ public class ProvisionalContractData extends AnchorPane {
         this.Friday.setSelected(contractDataDTO.getDaysWeekToWork().get("Friday"));
         this.Saturday.setSelected(contractDataDTO.getDaysWeekToWork().get("Saturday"));
         this.Sunday.setSelected(contractDataDTO.getDaysWeekToWork().get("Sunday"));
-
         this.laboralCategory.setText(contractDataDTO.getLaboralCategory());
     }
 }

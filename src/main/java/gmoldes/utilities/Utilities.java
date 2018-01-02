@@ -18,7 +18,7 @@ public class Utilities {
     public enum Months {
         ENERO       ("enero"),
         FEBRERO     ("febrero"),
-        MARZO       ("narzo"),
+        MARZO       ("marzo"),
         ABRIL       ("abril"),
         MAYO        ("mayo"),
         JUNIO       ("junio"),
@@ -38,6 +38,39 @@ public class Utilities {
             return month;
         }
     }
+
+    public enum TypeClients {
+        PERSONA_FISICA      ("PF"),
+        PERSONA_JURIDICA    ("PJ"),
+        OTROS               ("OT");
+
+        String typeClient;
+
+        TypeClients(String p){
+            typeClient = p;
+        }
+        public String getTypeClient() {
+            return typeClient;
+        }
+    }
+
+    public enum ServicesGM {
+        ASESORIA_FISCAL         ("Asesoría fiscal"),
+        CONTABILIDAD_COMPLETA   ("Llevanza de contabilidad"),
+        REGISTRO_FACTURAS       ("Llevanza de libros registro de ingresos, gastos e inversiones"),
+        ASESORIA_LABORAL        ("Asesoría laboral básica"),
+        GESTION_LABORAL         ("Contratos, Seguridad social");
+
+        String serviceGM;
+
+        ServicesGM(String p){
+            serviceGM = p;
+        }
+        public String getTypeClient() {
+            return serviceGM;
+        }
+    }
+
 
     public static StringConverter converter = new StringConverter<LocalDate>() {
         DateTimeFormatter dateFormatter =

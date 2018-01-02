@@ -13,9 +13,9 @@ public class ClientDTO {
     private Integer id;
     private Integer idcliente;
     private String nifcif;
-    private String nifcif_dup;
+    private Integer nifcif_dup;
     private String nom_rzsoc;
-    private String numvez;
+    private Integer numvez;
     private String cltsg21;
     private Date fdesde;
     private Date fhasta;
@@ -23,8 +23,8 @@ public class ClientDTO {
     private Date sinactividad;
     private String tipoclte;
 
-    public ClientDTO(Integer id, Integer idcliente, String nifcif, String nifcif_dup, String nom_rzsoc,
-                     String numvez, String cltsg21, Date fdesde, Date fhasta, Boolean cltactivo,
+    public ClientDTO(Integer id, Integer idcliente, String nifcif, Integer nifcif_dup, String nom_rzsoc,
+                     Integer numvez, String cltsg21, Date fdesde, Date fhasta, Boolean cltactivo,
                      Date sinactividad, String tipoclte) {
         this.id = id;
         this.idcliente = idcliente;
@@ -64,11 +64,11 @@ public class ClientDTO {
         this.nifcif = nifcif;
     }
 
-    public String getNifcif_dup() {
+    public Integer getNifcif_dup() {
         return nifcif_dup;
     }
 
-    public void setNifcif_dup(String nifcif_dup) {
+    public void setNifcif_dup(Integer nifcif_dup) {
         this.nifcif_dup = nifcif_dup;
     }
 
@@ -80,11 +80,11 @@ public class ClientDTO {
         this.nom_rzsoc = nom_rzsoc;
     }
 
-    public String getNumvez() {
+    public Integer getNumvez() {
         return numvez;
     }
 
-    public void setNumvez(String numvez) {
+    public void setNumvez(Integer numvez) {
         this.numvez = numvez;
     }
 
@@ -150,9 +150,9 @@ public class ClientDTO {
         private Integer id;
         private Integer idcliente;
         private String nifcif;
-        private String nifcif_dup;
+        private Integer nifcif_dup;
         private String nom_rzsoc;
-        private String numvez;
+        private Integer numvez;
         private String cltsg21;
         private Date fdesde;
         private Date fhasta;
@@ -175,7 +175,7 @@ public class ClientDTO {
             return this;
         }
 
-        public ClientDTO.PersonBuilder withNifcif_dup(String nifcif_dup) {
+        public ClientDTO.PersonBuilder withNifcif_dup(Integer nifcif_dup) {
             this.nifcif_dup = nifcif_dup;
             return this;
         }
@@ -185,7 +185,7 @@ public class ClientDTO {
             return this;
         }
 
-        public ClientDTO.PersonBuilder withNumvez(String numvez) {
+        public ClientDTO.PersonBuilder withNumvez(Integer numvez) {
             this.numvez = numvez;
             return this;
         }

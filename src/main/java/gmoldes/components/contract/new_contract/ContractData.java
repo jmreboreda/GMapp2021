@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,7 +30,8 @@ public class ContractData extends AnchorPane {
     private static final String PARTIAL_WORKDAY = "A tiempo parcial";
     private static final String UNDEFINED_DURATION = "Indefinido";
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    private DecimalFormat decimalFormatter = new DecimalFormat("0.00##");
 
 
     private Parent parent;
@@ -95,73 +98,9 @@ public class ContractData extends AnchorPane {
         workDayDataControlSetup();
     }
 
-    public DatePicker getDateNotification() {
-        return dateNotification;
-    }
-
-    public void setDateNotification(DatePicker dateNotification) {
-        this.dateNotification = dateNotification;
-    }
-
-    public TextField getHourNotification() {
-        return hourNotification;
-    }
-
-    public void setHourNotification(TextField hourNotification) {
-        this.hourNotification = hourNotification;
-    }
-
-    public ChoiceBox getContractType() {
-        return contractType;
-    }
-
-    public void setContractType(ChoiceBox contractType) {
-        this.contractType = contractType;
-    }
-
-    public DatePicker getDateFrom() {
-        return dateFrom;
-    }
-
-    public void setDateFrom(DatePicker dateFrom) {
-        this.dateFrom = dateFrom;
-    }
-
-    public DatePicker getDateTo() {
-        return dateTo;
-    }
-
-    public void setDateTo(DatePicker dateTo) {
-        this.dateTo = dateTo;
-    }
-
-    public TextField getHoursWorkWeek() {
-        return hoursWorkWeek;
-    }
-
-    public void setHoursWorkWeek(TextField hoursWorkWeek) {
-        this.hoursWorkWeek = hoursWorkWeek;
-    }
-
-    public String getDurationDaysContract() {
-        return durationDaysContract.getText();
-    }
-
-    public void setDurationDaysContract(String durationDaysContract) {
-        this.durationDaysContract.setText(durationDaysContract + " días");
-    }
-
-    public TextField getLaboralCategory() {
-        return laboralCategory;
-    }
-
-    public void setLaboralCategory(TextField laboralCategory) {
-        this.laboralCategory = laboralCategory;
-    }
-
     private void onDateAction(ActionEvent actionEvent){
-        if(this.getDateTo().getValue() != null && this.getDateFrom().getValue() != null) {
-            Long durationContractCalc = (this.getDateTo().getValue().toEpochDay() - this.getDateFrom().getValue().toEpochDay() + 1);
+        if(this.dateTo.getValue() != null && this.dateFrom.getValue() != null) {
+            Long durationContractCalc = (this.dateTo.getValue().toEpochDay() - this.dateFrom.getValue().toEpochDay() + 1);
             this.durationDaysContract.setText(durationContractCalc.toString());
         }else{
             this.durationDaysContract.setText("");
@@ -170,31 +109,31 @@ public class ContractData extends AnchorPane {
 
     public ProvisionalContractDataDTO getAllData(){
 
-        String contractType = "";
-        if(this.getContractType().getSelectionModel().getSelectedItem() != null){
-            contractType = this.getContractType().getSelectionModel().getSelectedItem().toString();
+        String contractType = null;
+        if(this.contractType.getSelectionModel().getSelectedItem() != null){
+            contractType = this.contractType.getSelectionModel().getSelectedItem().toString();
         }
 
-        String dateFrom = "";
-        if(this.getDateFrom().getValue() != null){
-            dateFrom = this.getDateFrom().getValue().format(formatter);
+        String dateFrom = null;
+        if(this.dateFrom.getValue() != null){
+            dateFrom = this.dateFrom.getValue().format(dateFormatter);
         }
 
-        String dateTo = "";
-        if(this.getDateTo().getValue() != null){
-            dateTo = this.getDateTo().getValue().format(formatter);
+        String dateTo = null;
+        if(this.dateTo.getValue() != null){
+            dateTo = this.dateTo.getValue().format(dateFormatter);
         }
 
         String durationContract = "";
         if(this.radioButtonUndefinedContractDuration.isSelected()) {
-            if (this.getDateFrom().getValue() != null) {
+            if (this.dateFrom.getValue() != null) {
                 durationContract = UNDEFINED_DURATION;
             }
         }
 
         if(this.radioButtonTemporalContractDuration.isSelected()) {
-            if (this.getDateFrom().getValue() != null && this.getDateTo().getValue() != null) {
-                Long durationContractCalc = (this.getDateTo().getValue().toEpochDay() - this.getDateFrom().getValue().toEpochDay() + 1);
+            if (this.dateFrom.getValue() != null && this.dateTo.getValue() != null) {
+                Long durationContractCalc = (this.dateTo.getValue().toEpochDay() - this.dateFrom.getValue().toEpochDay() + 1);
                 durationContract = durationContractCalc.toString();
             }
         }
@@ -207,8 +146,12 @@ public class ContractData extends AnchorPane {
         }
         if(radioButtonPartialWorkDay.isSelected()){
             workDayType = PARTIAL_WORKDAY;
-            if(this.getHoursWorkWeek().getText() != null){
-                numberHoursPerWeek = this.hoursWorkWeek.getText();
+            if(this.hoursWorkWeek.getText() != null){
+                try {
+                    numberHoursPerWeek = decimalFormatter.format(Double.parseDouble(this.hoursWorkWeek.getText().replace(",",".")));
+                }catch (Exception e){
+                    this.hoursWorkWeek.setText(null);
+                }
             }
         }
 
@@ -245,8 +188,8 @@ public class ContractData extends AnchorPane {
 
 
         String laboralCategory = "";
-        if(this.getLaboralCategory().getText() != null){
-            laboralCategory = this.getLaboralCategory().getText();
+        if(this.laboralCategory.getText() != null){
+            laboralCategory = this.laboralCategory.getText();
         }
 
         return ProvisionalContractDataDTO.create()
@@ -330,10 +273,10 @@ public class ContractData extends AnchorPane {
 
     @Override
     public String toString(){
-        return "Fecha notificación: " + this.getDateNotification().getValue() + "\n"
-                + "Hora notificación: " + this.getHourNotification().getText() + "\n"
-                + "Fecha desde: " + this.getDateFrom().getValue() + "\n"
-                + "Fecha hasta: " + this.getDateTo().getValue() + "\n";
+        return "Fecha notificación: " + this.dateNotification.getValue() + "\n"
+                + "Hora notificación: " + this.hourNotification.getText() + "\n"
+                + "Fecha desde: " + this.dateFrom.getValue() + "\n"
+                + "Fecha hasta: " + this.dateTo.getValue() + "\n";
     }
 
 }

@@ -77,7 +77,7 @@ public class NewContractMainController extends VBox {
     }
 
     private void onOkButton(MouseEvent event){
-        System.out.println(event.getSource() + " clicked!\n");
+        System.out.println(event.getSource() + " clicked!");
     }
 
     private ProvisionalContractDataDTO retrieveProvisionalContractDataDTO(){
