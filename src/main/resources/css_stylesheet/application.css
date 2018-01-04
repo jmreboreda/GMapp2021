@@ -2,6 +2,12 @@
     -fx-font-size: 11pt;
     -fx-font-family: "Open Sans";
 }
+.choice-box .label {-fx-font-size: 13pt;
+            -fx-text-fill: #0000FF;
+            -fx-pref-width: 200;}
+            .context-menu { -fx-background-color: #FFFFE0; }
+
+
 /*
     -fx-base: rgb(255, 255, 204);
     -fx-background: rgb(224, 224, 224);

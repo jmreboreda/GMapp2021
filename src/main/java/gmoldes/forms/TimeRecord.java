@@ -24,6 +24,7 @@ public class TimeRecord {
     private String numberHoursPerWeek;
 
 
+
     public TimeRecord(String nameOfMonth,
                       String yearNumber,
                       String enterpriseName,
@@ -100,10 +101,12 @@ public class TimeRecord {
     public String toFileName(){
 
         return Utilities.replaceWithUnderscore(this.getEnterpriseName())
-                + "_Registro_Horario_"
-                + this.getNameOfMonth() + "_"
-                + this.getYearNumber() + "_"
-                + Utilities.replaceWithUnderscore(this.employeeName);
+                .concat("_Registro_Horario_")
+                .concat(this.getNameOfMonth())
+                .concat("_")
+                .concat(this.getYearNumber())
+                .concat("_")
+                .concat(Utilities.replaceWithUnderscore(this.employeeName));
     }
 
     public static TimeRecord.TimeRecordBuilder create() {
@@ -163,7 +166,7 @@ public class TimeRecord {
 
     public static String createPDF(TimeRecord timeRecord) throws IOException, DocumentException {
 
-        String desktopDirName = null;
+        String desktopDirName = "";
 
         if(OS_ALIAS.toLowerCase().contains("windows")){
             desktopDirName = "Desktop";
@@ -171,7 +174,7 @@ public class TimeRecord {
             desktopDirName = "Escritorio";
         }
 
-        final String pathOut = USER_HOME + "/" + desktopDirName + "/" + timeRecord.toFileName() + ".pdf";
+        final String pathOut = USER_HOME.concat("/").concat(desktopDirName).concat("/").concat(timeRecord.toFileName()).concat(".pdf");
         PdfReader reader = new PdfReader(PATH_TO_PDF_TEMPLATE);
         PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(pathOut));
 
@@ -183,9 +186,9 @@ public class TimeRecord {
         timeRecordPDFFields.setField("quoteAccountCode",timeRecord.getQuoteAccountCode());
         timeRecordPDFFields.setField("employeeName",timeRecord.getEmployeeName());
         timeRecordPDFFields.setField("employeeNIF",timeRecord.getEmployeeNIF());
-        timeRecordPDFFields.setField("numberHoursPerWeek",timeRecord.getNumberHoursPerWeek() + " horas/semana");
-        timeRecordPDFFields.setField("enterpriseSignature","Firmado: " + timeRecord.getEnterpriseName());
-        timeRecordPDFFields.setField("employeeSignature","Firmado: " + timeRecord.getEmployeeName());
+        timeRecordPDFFields.setField("numberHoursPerWeek",timeRecord.getNumberHoursPerWeek());
+        timeRecordPDFFields.setField("enterpriseSignature","Firmado: ".concat(timeRecord.getEnterpriseName()));
+        timeRecordPDFFields.setField("employeeSignature","Firmado: ".concat(timeRecord.getEmployeeName()));
 
         stamp.setFormFlattening(true);
         stamp.close();
