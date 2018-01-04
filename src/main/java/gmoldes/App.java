@@ -44,9 +44,7 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        //NewContractMainController controller = new NewContractMainController();
-        TimeRecordController controller = new TimeRecordController();
-        //InitialMenuController controller = new InitialMenuController();
+        InitialMenuController controller = new InitialMenuController();
         primaryStage.setResizable(false);
         Scene scene = new Scene(controller);
         scene.getStylesheets().add(App.class.getResource("/css_stylesheet/application.css").toExternalForm());

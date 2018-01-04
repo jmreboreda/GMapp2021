@@ -13,6 +13,31 @@ public class ClientManager {
     public ClientManager() {
     }
 
+    public List<ClientDTO> findAllActiveClientInAlphabeticalOrder() {
+
+        List<ClientDTO> personDTOList = new ArrayList<>();
+        ClientDAO clientDAO = ClientDAO.ClientDAOFactory.getInstance();
+        List<ClientVO> clientVOList = clientDAO.findAllActiveClientsInAlphabeticalOrder();
+        for (ClientVO clientVO : clientVOList) {
+            ClientDTO clientDTO = ClientDTO.create()
+                    .withId(clientVO.getId())
+                    .withCltactivo(clientVO.getCltactivo())
+                    .withCltsg21(clientVO.getCltsg21())
+                    .withFdesde(clientVO.getFdesde())
+                    .withFhasta(clientVO.getFhasta())
+                    .withNifcif(clientVO.getNifcif())
+                    .withNifcif_dup(clientVO.getNifcif_dup())
+                    .withNom_rzsoc(clientVO.getNom_rzsoc())
+                    .withNumvez(clientVO.getNumvez())
+                    .withSinactividad(clientVO.getSinactividad())
+                    .withTipoclte(clientVO.getTipoclte())
+                    .build();
+
+            personDTOList.add(clientDTO);
+        }
+        return personDTOList;
+    }
+
     public List<ClientDTO> findAllActiveClientByNamePatternInAlphabeticalOrder(String namePattern) {
 
         List<ClientDTO> personDTOList = new ArrayList<>();

@@ -23,8 +23,6 @@ public class TimeRecord {
     private String employeeNIF;
     private String numberHoursPerWeek;
 
-
-
     public TimeRecord(String nameOfMonth,
                       String yearNumber,
                       String enterpriseName,

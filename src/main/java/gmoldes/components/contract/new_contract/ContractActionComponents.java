@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 
 public class ContractActionComponents extends AnchorPane {
@@ -35,8 +36,8 @@ public class ContractActionComponents extends AnchorPane {
     }
 
     private void onExitButton(MouseEvent event){
-        Platform.exit();
-        System.exit(0);
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 
     public void setOnOkButton(EventHandler<MouseEvent> OkButtonEventHandler){

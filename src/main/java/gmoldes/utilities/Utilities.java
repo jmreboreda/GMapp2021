@@ -61,6 +61,7 @@ public class Utilities {
         ASESORIA_FISCAL         ("Asesoría fiscal"),
         CONTABILIDAD            ("Contabilidad"),
         REGISTRO_FACTURAS       ("Libros Registro IGI"),
+        REGISTRO_PARA_IVA       ("Registro de IVA en Módulos"),
         ASESORIA_LABORAL        ("Asesoría laboral");
 
         String serviceGM;

@@ -71,6 +71,13 @@ public class ClientDAO {
         return personVOList;
     }
 
+    public List<ClientVO> findAllActiveClientsInAlphabeticalOrder(){
+
+        TypedQuery<ClientVO> query = session.createNamedQuery(ClientVO.FIND_ALL_ACTIVE_CLIENTS_IN_ALPHABETICAL_ORDER, ClientVO.class);
+
+        return query.getResultList();
+    }
+
     public List<ClientVO> findAllActiveClientsByNamePatternInAlphabeticalOrder(String nameLetters){
 
         TypedQuery<ClientVO> query = session.createNamedQuery(ClientVO.FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER, ClientVO.class);

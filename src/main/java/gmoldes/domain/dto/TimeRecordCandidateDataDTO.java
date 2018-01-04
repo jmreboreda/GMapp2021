@@ -1,10 +1,9 @@
 package gmoldes.domain.dto;
 
-import java.util.Date;
-
 public class TimeRecordCandidateDataDTO {
 
     private String employeeFullName;
+    private String employeeNif;
     private String workDayType;
     private String hoursByWeek;
     private String contractType;
@@ -12,6 +11,7 @@ public class TimeRecordCandidateDataDTO {
     private String dateTo;
 
     public TimeRecordCandidateDataDTO(String employeeFullName,
+                                      String employeeNif,
                                       String workDayType,
                                       String hoursByWeek,
                                       String contractType,
@@ -19,6 +19,7 @@ public class TimeRecordCandidateDataDTO {
                                       String dateTo) {
 
         this.employeeFullName = employeeFullName;
+        this.employeeNif = employeeNif;
         this.workDayType = workDayType;
         this.hoursByWeek = hoursByWeek;
         this.contractType = contractType;
@@ -32,6 +33,14 @@ public class TimeRecordCandidateDataDTO {
 
     public void setEmployeeFullName(String employeeFullName) {
         this.employeeFullName = employeeFullName;
+    }
+
+    public String getEmployeeNif() {
+        return employeeNif;
+    }
+
+    public void setEmployeeNif(String employeeNif) {
+        this.employeeNif = employeeNif;
     }
 
     public String getWorkDayType() {

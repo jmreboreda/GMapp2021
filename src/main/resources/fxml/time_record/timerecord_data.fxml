@@ -38,7 +38,7 @@
                   <Insets left="10.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="nameOfMonth" prefHeight="30.0" prefWidth="315.0" GridPane.rowIndex="1">
+            <ChoiceBox fx:id="monthName" prefHeight="30.0" prefWidth="315.0" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" top="10.0" />
                </GridPane.margin>
@@ -59,7 +59,7 @@
                   <Insets left="10.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="26.0" prefWidth="475.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <ChoiceBox fx:id="clientForTimeRecord" prefHeight="26.0" prefWidth="475.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" top="10.0" />
                </GridPane.margin>
