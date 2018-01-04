@@ -3,6 +3,7 @@ package gmoldes.persistence.vo;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
@@ -13,6 +14,10 @@ import java.util.Date;
                 query = " select p from ClientVO as p where lower(p.nom_rzsoc) like lower(:code) and p.cltactivo = true order by p.nom_rzsoc"
         ),
         @NamedQuery(
+                name = ClientVO.FIND_ALL_ACTIVE_CLIENTS_IN_ALPHABETICAL_ORDER,
+                query = " select p from ClientVO as p where p.cltactivo = true order by p.nom_rzsoc"
+        ),
+        @NamedQuery(
                 name = ClientVO.FIND_CLIENT_BY_SAME_NAME,
                 query = " select p from ClientVO as p where p.nom_rzsoc = :nom_rzsoc"
         )
@@ -21,29 +26,28 @@ import java.util.Date;
 public class ClientVO implements Serializable {
 
     public static final String FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER = "ClientVO.FIND_ALL_ACTIVE_CLIENTS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER";
-
+    public static final String FIND_ALL_ACTIVE_CLIENTS_IN_ALPHABETICAL_ORDER = "ClientVO.FIND_ALL_ACTIVE_CLIENTS_IN_ALPHABETICAL_ORDER";
     public static final String FIND_CLIENT_BY_SAME_NAME = "ClientVO.FIND_CLIENT_BY_SAME_NAME";
 
 
     @Id
-    @SequenceGenerator(name = "clientes_id_seq",
-            sequenceName = "clientes_id_seq",
-            allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "clientes_id_seq")
+    @SequenceGenerator(name = "clientes_id_seq", sequenceName = "clientes_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clientes_id_seq")
     @Column(name = "id", updatable = false)
     private Integer id;
     private Integer idcliente;
     private String nifcif;
-    private String nifcif_dup;
+    private Integer nifcif_dup;
     private String nom_rzsoc;
-    private String numvez;
+    private Integer numvez;
     private String cltsg21;
     private Date fdesde;
     private Date fhasta;
     private Boolean cltactivo;
     private Date sinactividad;
     private String tipoclte;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clientVO", cascade = CascadeType.ALL)
+    private Set<ServiceGMVO> servicesGM;
 
     public Integer getId() {
         return id;
@@ -69,11 +73,11 @@ public class ClientVO implements Serializable {
         this.nifcif = nifcif;
     }
 
-    public String getNifcif_dup() {
+    public Integer getNifcif_dup() {
         return nifcif_dup;
     }
 
-    public void setNifcif_dup(String nifcif_dup) {
+    public void setNifcif_dup(Integer nifcif_dup) {
         this.nifcif_dup = nifcif_dup;
     }
 
@@ -85,11 +89,11 @@ public class ClientVO implements Serializable {
         this.nom_rzsoc = nom_rzsoc;
     }
 
-    public String getNumvez() {
+    public Integer getNumvez() {
         return numvez;
     }
 
-    public void setNumvez(String numvez) {
+    public void setNumvez(Integer numvez) {
         this.numvez = numvez;
     }
 
@@ -139,5 +143,13 @@ public class ClientVO implements Serializable {
 
     public void setTipoclte(String tipoclte) {
         this.tipoclte = tipoclte;
+    }
+
+    public Set<ServiceGMVO> getServicesGM() {
+        return servicesGM;
+    }
+
+    public void setServicesGM(Set<ServiceGMVO> servicesGM) {
+        this.servicesGM = servicesGM;
     }
 }

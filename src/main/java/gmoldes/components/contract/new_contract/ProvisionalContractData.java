@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
@@ -89,7 +88,6 @@ public class ProvisionalContractData extends AnchorPane {
         this.Friday.setSelected(contractDataDTO.getDaysWeekToWork().get("Friday"));
         this.Saturday.setSelected(contractDataDTO.getDaysWeekToWork().get("Saturday"));
         this.Sunday.setSelected(contractDataDTO.getDaysWeekToWork().get("Sunday"));
-
         this.laboralCategory.setText(contractDataDTO.getLaboralCategory());
     }
 }

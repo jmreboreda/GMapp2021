@@ -55,8 +55,8 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label fx:id="employerName" prefHeight="18.0" prefWidth="343.0" text="González Moldes, María Elena" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" />
-            <Label fx:id="employeeName" prefHeight="18.0" prefWidth="347.0" text="Reboreda Barcia, José Manuel" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+            <Label fx:id="employerName" prefHeight="18.0" prefWidth="343.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+            <Label fx:id="employeeName" prefHeight="18.0" prefWidth="347.0" textFill="#1807ac" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
             <Label text="Contrato:" wrapText="true" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -237,7 +237,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label fx:id="quoteAccountCode" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" text="36966128579" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <Label fx:id="quoteAccountCode" alignment="CENTER" prefHeight="18.0" prefWidth="239.0" textFill="#1807ac" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="25.0" />
                </GridPane.margin></Label>

@@ -1,7 +1,25 @@
 .root{
-    -fx-font-size: 11pt;
-    -fx-font-family: "Open Sans";
+            -fx-font-size: 11pt;
+            -fx-font-family: "Open Sans";
+            }
+
+.choice-box .label {
+            -fx-font-size: 13pt;
+            -fx-text-fill: #0000FF;
+            /*-fx-pref-width: 200;*/
+            }
+             .context-menu {
+            -fx-font-size: 13pt;
+            -fx-text-fill: #0000FF;
+            /*-fx-pref-width: 450;*/
+            -fx-background-color: #FFFFE0;
+            }
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #660000;
 }
+
 /*
     -fx-base: rgb(255, 255, 204);
     -fx-background: rgb(224, 224, 224);
@@ -35,9 +53,6 @@
     -fx-font-weight: bold;
 }
 */
-.tab:selected .tab-label {
-    -fx-alignment: CENTER;
-    -fx-text-fill: #660000;
-}
+
 
 

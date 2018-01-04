@@ -1,6 +1,9 @@
 package gmoldes.utilities;
 
 import javafx.util.StringConverter;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -18,7 +21,7 @@ public class Utilities {
     public enum Months {
         ENERO       ("enero"),
         FEBRERO     ("febrero"),
-        MARZO       ("narzo"),
+        MARZO       ("marzo"),
         ABRIL       ("abril"),
         MAYO        ("mayo"),
         JUNIO       ("junio"),
@@ -38,6 +41,39 @@ public class Utilities {
             return month;
         }
     }
+
+    public enum TypeClients {
+        PERSONA_FISICA      ("PF"),
+        PERSONA_JURIDICA    ("PJ"),
+        OTROS               ("OT");
+
+        String typeClient;
+
+        TypeClients(String p){
+            typeClient = p;
+        }
+        public String getTypeClient() {
+            return typeClient;
+        }
+    }
+
+    public enum ServicesGM {
+        ASESORIA_FISCAL         ("Asesoría fiscal"),
+        CONTABILIDAD            ("Contabilidad"),
+        REGISTRO_FACTURAS       ("Libros Registro IGI"),
+        REGISTRO_PARA_IVA       ("Registro de IVA en Módulos"),
+        ASESORIA_LABORAL        ("Asesoría laboral");
+
+        String serviceGM;
+
+        ServicesGM(String p){
+            serviceGM = p;
+        }
+        public String getServiceGM() {
+            return serviceGM;
+        }
+    }
+
 
     public static StringConverter converter = new StringConverter<LocalDate>() {
         DateTimeFormatter dateFormatter =
@@ -97,42 +133,92 @@ public class Utilities {
         return true;
     }
 
-    public String formatoNIF(String dni){
-        String nifFormat = null;
+    public static String formatAsNIF(String dni){
+        String nifFormatted = null;
         int i;
 
-        String letraUnicaInicial[] = {"A","B","C","D","E","F","G","H","J","V"};
-        String letraInicialyFinal[] = {"X","Y","Z","N","P","Q","R","S","W"};
+        String initialSingleLetter[] = {"A","B","C","D","E","F","G","H","J","V"};
+        String initialAndFinalLetter[] = {"X","Y","Z","N","P","Q","R","S","W"};
 
-        for (i = 0; i < letraUnicaInicial.length - 1; i++)
+        for (i = 0; i < initialSingleLetter.length - 1; i++)
         {
-            if (dni.substring(0, 1).equals(letraUnicaInicial[i]))
+            if (dni.substring(0, 1).equals(initialSingleLetter[i]))
             {
-                nifFormat = dni.substring(0,1)+"-"+dni.substring(1, dni.length());
-                return nifFormat;
+                nifFormatted = dni.substring(0,1)+"-"+dni.substring(1, dni.length());
+                return nifFormatted;
             }
         }
-        for (i = 0; i < letraInicialyFinal.length - 1; i++)
+        for (i = 0; i < initialAndFinalLetter.length - 1; i++)
         {
-            if (dni.substring(0, 1).equals(letraInicialyFinal[i]))
+            if (dni.substring(0, 1).equals(initialAndFinalLetter[i]))
                 if (dni.length() == 9)
                 {
                     // Letra + 7 + letra
-                    nifFormat = dni.substring(0,1)+"-"+dni.substring(1,2)+"."+dni.substring(2,5)+"."+dni.substring(5,8)+"-"+dni.substring(8,9);
-                    return nifFormat;
+                    nifFormatted = dni.substring(0,1)+"-"+dni.substring(1,2)+"."+dni.substring(2,5)+"."+dni.substring(5,8)+"-"+dni.substring(8,9);
+                    return nifFormatted;
                 }
                 else
                 {
-                    nifFormat = dni.substring(0,1)+"-"+ dni.substring(1, dni.length()-2) + dni.substring(dni.length()-2,dni.length()-1 );
-                    return nifFormat;
+                    nifFormatted = dni.substring(0,1)+"-"+ dni.substring(1, dni.length()-2) + dni.substring(dni.length()-2,dni.length()-1 );
+                    return nifFormatted;
                 }
         }
         // NIF: 8 + letra
         if (dni.length() == 9)
-            nifFormat = dni.substring(0,2)+"."+dni.substring(2,5)+"."+dni.substring(5,8)+"-"+dni.substring(8,9);
+            nifFormatted = dni.substring(0,2)+"."+dni.substring(2,5)+"."+dni.substring(5,8)+"-"+dni.substring(8,9);
         else
-            nifFormat = dni.substring(0,1)+"."+dni.substring(1,4)+"."+dni.substring(4,7)+"-"+dni.substring(7,8);
+            nifFormatted = dni.substring(0,1)+"."+dni.substring(1,4)+"."+dni.substring(4,7)+"-"+dni.substring(7,8);
 
-        return nifFormat;
+        return nifFormatted;
+    }
+
+    public static void drawPDFTable(PDPage page, PDPageContentStream contentStream,
+                                    float y, float margin,
+                                    String[][] content) throws IOException {
+        final int rows = content.length;
+        final int cols = content[0].length;
+        final float rowHeight = 20f;
+        final float tableWidth = page.getMediaBox().getWidth()-(2*margin);
+        final float tableHeight = rowHeight * rows;
+        final float colWidth = tableWidth/(float)cols;
+        final float cellMargin=5f;
+
+        //draw the rows
+        float nexty = y ;
+        for (int i = 0; i <= rows; i++) {
+            //contentStream.drawLine(margin,nexty,margin+tableWidth,nexty);
+            contentStream.moveTo(margin,nexty);
+            contentStream.lineTo(margin+tableWidth,nexty);
+            contentStream.stroke();
+            nexty-= rowHeight;
+        }
+
+        //draw the columns
+        float nextx = margin;
+        for (int i = 0; i <= cols; i++) {
+            //contentStream.drawLine(nextx,y,nextx,y-tableHeight);
+            contentStream.moveTo(nextx,y);
+            contentStream.lineTo(nextx,y-tableHeight);
+            contentStream.stroke();
+            nextx += colWidth;
+        }
+
+        //now add the text
+        contentStream.setFont(PDType1Font.HELVETICA_BOLD,12);
+
+        float textx = margin+cellMargin;
+        float texty = y-15;
+        for(int i = 0; i < content.length; i++){
+            for(int j = 0 ; j < content[i].length; j++){
+                String text = content[i][j];
+                contentStream.beginText();
+                contentStream.newLineAtOffset(textx,texty);
+                contentStream.showText(text);
+                contentStream.endText();
+                textx += colWidth;
+            }
+            texty-=rowHeight;
+            textx = margin+cellMargin;
+        }
     }
 }
