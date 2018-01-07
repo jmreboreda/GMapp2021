@@ -23,6 +23,9 @@ public class ClientDTO {
     private Date sinactividad;
     private String tipoclte;
 
+    public ClientDTO() {
+    }
+
     public ClientDTO(Integer id, Integer idcliente, String nifcif, Integer nifcif_dup, String nom_rzsoc,
                      Integer numvez, String cltsg21, Date fdesde, Date fhasta, Boolean cltactivo,
                      Date sinactividad, String tipoclte) {

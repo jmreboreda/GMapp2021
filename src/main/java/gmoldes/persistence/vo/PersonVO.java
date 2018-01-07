@@ -13,6 +13,10 @@ import java.util.Date;
                 query = " select p from PersonVO as p where lower(p.apellidos) like lower(:code) or lower(p.nom_rzsoc) like lower(:code) order by p.apellidos, p.nom_rzsoc"
         ),
         @NamedQuery(
+                name = PersonVO.FIND_PERSON_BY_ID,
+                query = " select p from PersonVO as p where p.idpersona = :code"
+        ),
+        @NamedQuery(
                 name = PersonVO.FIND_PERSON_BY_SAME_NAME,
                 query = " select p from ClientVO as p where p.nom_rzsoc = :nom_rzsoc"
         )
@@ -21,7 +25,7 @@ import java.util.Date;
 public class PersonVO implements Serializable {
 
     public static final String FIND_ALL_PERSONS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER = "PersonVO.FIND_ALL_PERSONS_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER";
-
+    public static final String FIND_PERSON_BY_ID = "PersonVO.FIND_PERSON_BY_ID";
     public static final String FIND_PERSON_BY_SAME_NAME = "PersonVO.FIND_PERSON_BY_SAME_NAME";
 
 

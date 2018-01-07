@@ -15,11 +15,11 @@ public class ClientDAO {
     private SessionFactory sessionFactory;
     private Session session;
 
-    public static String FIND_PERSON_BY_ID = "FROM PersonVO WHERE id = :code";
-    public static String FIND_ALL_PERSON_IN_ALPHABETICAL_ORDER = "SELECT id, apellido1, apellido2, nombre FROM PersonVO ORDER BY apellido1, apellido2, nombre";
-    public static String FIND_ALL_PERSON_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER =
-            "FROM PersonVO WHERE LOWER(apellido1) LIKE :code OR LOWER(apellido2) LIKE :code OR LOWER(nombre) LIKE :code ORDER BY apellido1, apellido2, nombre";
-    public static String FIND_PERSON_BY_STRICT_NAME = "FROM PersonVO WHERE apellido1 = :code1 AND apellido2 = :code2 AND nombre = :code3";
+//    public static String FIND_PERSON_BY_ID = "FROM PersonVO WHERE id = :code";
+//    public static String FIND_ALL_PERSON_IN_ALPHABETICAL_ORDER = "SELECT id, apellido1, apellido2, nombre FROM PersonVO ORDER BY apellido1, apellido2, nombre";
+//    public static String FIND_ALL_PERSON_BY_NAME_PATTERN_IN_ALPHABETICAL_ORDER =
+//            "FROM PersonVO WHERE LOWER(apellido1) LIKE :code OR LOWER(apellido2) LIKE :code OR LOWER(nombre) LIKE :code ORDER BY apellido1, apellido2, nombre";
+//    public static String FIND_PERSON_BY_STRICT_NAME = "FROM PersonVO WHERE apellido1 = :code1 AND apellido2 = :code2 AND nombre = :code3";
 
     public ClientDAO() {
     }
@@ -54,22 +54,22 @@ public class ClientDAO {
             return clientVO.getId();
     }
 
-    public ClientVO findClientById(Integer id){
-
-        Query query = session.createQuery(FIND_PERSON_BY_ID);
-        query.setParameter("code", id);
-        ClientVO clientVO =  (ClientVO) query.getSingleResult();
-
-        return clientVO;
-    }
-     
-    public List<ClientVO> findAllPersonInAlphabeticalOrder(){
-        
-        Query query = session.createQuery(FIND_ALL_PERSON_IN_ALPHABETICAL_ORDER);
-        List<ClientVO> personVOList = query.getResultList();
-        
-        return personVOList;
-    }
+//    public ClientVO findClientById(Integer id){
+//
+//        Query query = session.createQuery(FIND_PERSON_BY_ID);
+//        query.setParameter("code", id);
+//        ClientVO clientVO =  (ClientVO) query.getSingleResult();
+//
+//        return clientVO;
+//    }
+//
+//    public List<ClientVO> findAllPersonInAlphabeticalOrder(){
+//
+//        Query query = session.createQuery(FIND_ALL_PERSON_IN_ALPHABETICAL_ORDER);
+//        List<ClientVO> personVOList = query.getResultList();
+//
+//        return personVOList;
+//    }
 
     public List<ClientVO> findAllActiveClientsInAlphabeticalOrder(){
 
@@ -85,6 +85,7 @@ public class ClientDAO {
 
         return query.getResultList();
     }
+
 
 //    public Integer findPersonBySameName(ClientVO personVO){
 //

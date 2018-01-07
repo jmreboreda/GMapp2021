@@ -38,4 +38,25 @@ public class PersonManager {
         }
         return personDTOList;
     }
+
+    public PersonDTO findPersonById(Integer id){
+        PersonDAO personDAO = PersonDAO.PersonDAOFactory.getInstance();
+        PersonVO personVO = personDAO.findPersonById(id);
+        PersonDTO personDTO = PersonDTO.create()
+                .withIdpersona(personVO.getIdpersona())
+                .withApellidos(personVO.getApellidos())
+                .withNom_rzsoc(personVO.getNom_rzsoc())
+                .withCodpostal(personVO.getCodpostal())
+                .withDireccion(personVO.getDireccion())
+                .withEstciv(personVO.getEstciv())
+                .withFechanacim(personVO.getFechanacim())
+                .withLocalidad(personVO.getLocalidad())
+                .withNacionalidad(personVO.getNacionalidad())
+                .withNifcif(personVO.getNifcif())
+                .withNifcifdup(personVO.getNifcifdup())
+                .withNivestud(personVO.getNivestud())
+                .build();
+
+        return personDTO;
+    }
 }

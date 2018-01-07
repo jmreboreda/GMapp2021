@@ -4,15 +4,13 @@
             }
 
 .choice-box .label {
-            -fx-font-size: 13pt;
+            -fx-font-size: 12pt;
             -fx-text-fill: #0000FF;
-            /*-fx-pref-width: 200;*/
             }
              .context-menu {
-            -fx-font-size: 13pt;
+            -fx-font-size: 12pt;
             -fx-text-fill: #0000FF;
-            /*-fx-pref-width: 450;*/
-            -fx-background-color: #FFFFE0;
+            /*-fx-background-color: #FFFFE0;*/
             }
 
 .tab:selected .tab-label {

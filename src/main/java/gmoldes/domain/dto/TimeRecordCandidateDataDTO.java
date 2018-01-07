@@ -4,6 +4,7 @@ public class TimeRecordCandidateDataDTO {
 
     private String employeeFullName;
     private String employeeNif;
+    private String quoteAccountCode;
     private String workDayType;
     private String hoursByWeek;
     private String contractType;
@@ -12,6 +13,7 @@ public class TimeRecordCandidateDataDTO {
 
     public TimeRecordCandidateDataDTO(String employeeFullName,
                                       String employeeNif,
+                                      String quoteAccountCode,
                                       String workDayType,
                                       String hoursByWeek,
                                       String contractType,
@@ -20,6 +22,7 @@ public class TimeRecordCandidateDataDTO {
 
         this.employeeFullName = employeeFullName;
         this.employeeNif = employeeNif;
+        this.quoteAccountCode = quoteAccountCode;
         this.workDayType = workDayType;
         this.hoursByWeek = hoursByWeek;
         this.contractType = contractType;
@@ -41,6 +44,14 @@ public class TimeRecordCandidateDataDTO {
 
     public void setEmployeeNif(String employeeNif) {
         this.employeeNif = employeeNif;
+    }
+
+    public String getQuoteAccountCode() {
+        return quoteAccountCode;
+    }
+
+    public void setQuoteAccountCode(String quoteAccountCode) {
+        this.quoteAccountCode = quoteAccountCode;
     }
 
     public String getWorkDayType() {

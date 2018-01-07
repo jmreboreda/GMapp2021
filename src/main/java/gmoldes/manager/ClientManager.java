@@ -2,13 +2,21 @@ package gmoldes.manager;
 
 
 import gmoldes.domain.dto.ClientDTO;
+import gmoldes.domain.dto.TimeRecordClientDTO;
+import gmoldes.mappers.MapperClientVODTO;
+import gmoldes.mappers.MapperContractVODTO;
 import gmoldes.persistence.dao.ClientDAO;
+import gmoldes.persistence.dao.ContractDAO;
 import gmoldes.persistence.vo.ClientVO;
+import gmoldes.persistence.vo.ContractVO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientManager {
+
+    private ClientDAO clientDAO;
+    private ContractDAO contractDAO;
 
     public ClientManager() {
     }
@@ -16,7 +24,7 @@ public class ClientManager {
     public List<ClientDTO> findAllActiveClientInAlphabeticalOrder() {
 
         List<ClientDTO> personDTOList = new ArrayList<>();
-        ClientDAO clientDAO = ClientDAO.ClientDAOFactory.getInstance();
+        clientDAO = ClientDAO.ClientDAOFactory.getInstance();
         List<ClientVO> clientVOList = clientDAO.findAllActiveClientsInAlphabeticalOrder();
         for (ClientVO clientVO : clientVOList) {
             ClientDTO clientDTO = ClientDTO.create()
@@ -41,7 +49,7 @@ public class ClientManager {
     public List<ClientDTO> findAllActiveClientByNamePatternInAlphabeticalOrder(String namePattern) {
 
         List<ClientDTO> personDTOList = new ArrayList<>();
-        ClientDAO clientDAO = ClientDAO.ClientDAOFactory.getInstance();
+        clientDAO = ClientDAO.ClientDAOFactory.getInstance();
         List<ClientVO> clientVOList = clientDAO.findAllActiveClientsByNamePatternInAlphabeticalOrder(namePattern);
         for (ClientVO clientVO : clientVOList) {
             ClientDTO clientDTO = ClientDTO.create()
@@ -63,9 +71,23 @@ public class ClientManager {
         return personDTOList;
     }
 
+    public List<TimeRecordClientDTO> findAllClientWithActiveContractSorted(){
+        List<TimeRecordClientDTO> clientDTOList = new ArrayList<>();
+        contractDAO = ContractDAO.ContractDAOFactory.getInstance();
+        MapperContractVODTO mapper = new MapperContractVODTO();
+        List<ContractVO> contractVOList = contractDAO.findAllClientWithActiveContractSorted();
+        for(ContractVO contractVO : contractVOList){
+            TimeRecordClientDTO clientDTO = new TimeRecordClientDTO();
+            clientDTO.setIdcliente(contractVO.getIdcliente_gm());
+            clientDTO.setNom_rzsoc(contractVO.getClientegm_name());
+            clientDTOList.add(clientDTO);
+        }
+        return clientDTOList;
+    }
+
 //    public ClientDTO findPersonById(Integer id){
 //
-//        ClientDAO clientDAO = ClientDAO.ClientDAOFactory.getInstance();
+//        clientDAO = ClientDAO.ClientDAOFactory.getInstance();
 //        ClientVO clientVO = clientDAO.findClientById(id);
 //
 //
