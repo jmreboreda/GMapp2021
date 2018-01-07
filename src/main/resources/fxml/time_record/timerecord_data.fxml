@@ -68,7 +68,7 @@
       </GridPane>
       <AnchorPane>
          <children>
-            <TableView fx:id="dataByTimeRecord" prefHeight="400.0" prefWidth="1202.0" style="-fx-background-color: #FFFFE0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="dataByTimeRecord" prefHeight="400.0" prefWidth="1202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
                   <TableColumn fx:id="employeeFullName" editable="false" maxWidth="-1.0" minWidth="325.0" prefWidth="-1.0" sortable="false" text="Apellidos y nombre" />
                   <TableColumn maxWidth="-1.0" minWidth="325.0" prefWidth="-1.0" sortable="false" text="Jornada de trabajo">

@@ -2,11 +2,16 @@ package gmoldes.components.timerecord;
 
 import com.lowagie.text.DocumentException;
 import gmoldes.components.ViewLoader;
-import gmoldes.domain.dto.ClientDTO;
+import gmoldes.controllers.ContractController;
+import gmoldes.controllers.PersonController;
+import gmoldes.domain.dto.ContractDTO;
+import gmoldes.domain.dto.PersonDTO;
 import gmoldes.domain.dto.TimeRecordCandidateDataDTO;
+import gmoldes.domain.dto.TimeRecordClientDTO;
 import gmoldes.forms.TimeRecord;
 import gmoldes.manager.ClientManager;
 import gmoldes.services.Printer;
+import gmoldes.utilities.Message;
 import gmoldes.utilities.Utilities;
 import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.BooleanProperty;
@@ -24,12 +29,13 @@ import javafx.stage.Stage;
 
 import java.awt.print.PrinterException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class TimeRecordData extends VBox {
 
@@ -37,6 +43,7 @@ public class TimeRecordData extends VBox {
     private static final Integer FIRST_MONTH_INDEX_IN_MONTHNAME = 0;
     private static final Integer LAST_MONTH_INDEX_IN_MONTHNAME = 11;
     private final BooleanProperty activeButton = new SimpleBooleanProperty(false);
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
 
     private Parent parent;
 
@@ -45,7 +52,7 @@ public class TimeRecordData extends VBox {
     @FXML
     private TextField yearNumber;
     @FXML
-    private ChoiceBox<ClientDTO> clientForTimeRecord;
+    private ChoiceBox<TimeRecordClientDTO> clientForTimeRecord;
     @FXML
     private TableColumn<TimeRecordCandidateDataDTO, String> employeeFullName;
     @FXML
@@ -75,6 +82,8 @@ public class TimeRecordData extends VBox {
     public void initialize() {
 
         clientForTimeRecord.setOnAction(this::onChangeEmployer);
+        yearNumber.setOnAction(this::onChangeEmployer);
+        monthName.setOnAction(this::onChangeEmployer);
         createPDFButton.disableProperty().bind(BooleanExpression.booleanExpression(this.dataByTimeRecord.getSelectionModel().selectedItemProperty().isNull()));
         createPDFButton.setOnMouseClicked(this::onCreateTimeRecordPDF);
         printButton.disableProperty().bind(BooleanExpression.booleanExpression(this.dataByTimeRecord.getSelectionModel().selectedItemProperty().isNull()));
@@ -116,28 +125,15 @@ public class TimeRecordData extends VBox {
         contractType.setCellValueFactory(new PropertyValueFactory<TimeRecordCandidateDataDTO,String>("contractType"));
         dateFrom.setCellValueFactory(new PropertyValueFactory<TimeRecordCandidateDataDTO,String>("dateFrom"));
         dateTo.setCellValueFactory(new PropertyValueFactory<TimeRecordCandidateDataDTO,String>("dateTo"));
-        hoursByWeek.setStyle("-fx-alignment: CENTER;");
         dateFrom.setStyle("-fx-alignment: CENTER;");
         dateTo.setStyle("-fx-alignment: CENTER;");
 
         loadClientForTimeRecord();
-
-//        TimeRecordCandidateDataDTO candidate = new TimeRecordCandidateDataDTO(
-//                "Reboreda Barcia, José Manuel",
-//                "36.019.653-C",
-//                "A tiempo completo",
-//                "40,00 horas/semana",
-//                "Ordinario",
-//                "01-08-2014",
-//                "Indefinido");
-//
-//        refreshData(candidate);
-
     }
 
     private void onCreateTimeRecordPDF(MouseEvent event){
         String pathToTimeRecordPDF = createPDF();
-        System.out.println("Registro horario creado en ".concat(pathToTimeRecordPDF));
+        Message.warningMessage(createPDFButton.getScene().getWindow(),"Información del sistema", "Registro horario creado en:" + "\n" + pathToTimeRecordPDF + "\n");
     }
 
     private void onPrintTimeRecord(MouseEvent event){
@@ -167,8 +163,8 @@ public class TimeRecordData extends VBox {
         TimeRecord timeRecord = TimeRecord.create()
                 .withNameOfMonth(this.monthName.getSelectionModel().getSelectedItem().getMonthName())
                 .withYearNumber(this.yearNumber.getText())
-                .withEnterpriseName("Colmado de Marujamaría C. B., O")
-                .withQuoteAccountCode("36012598712")
+                .withEnterpriseName(clientForTimeRecord.getSelectionModel().getSelectedItem().toString())
+                .withQuoteAccountCode(data.getQuoteAccountCode())
                 .withEmployeeName(data.getEmployeeFullName())
                 .withEmployeeNIF(data.getEmployeeNif())
                 .withNumberHoursPerWeek(data.getHoursByWeek())
@@ -186,20 +182,87 @@ public class TimeRecordData extends VBox {
 
     private void onChangeEmployer(ActionEvent event){
         dataByTimeRecord.getItems().clear();
+        if(clientForTimeRecord.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
+        List<TimeRecordCandidateDataDTO> candidates = new ArrayList<>();
+        ContractController contractController = new ContractController();
+        Integer idSelectedClient = clientForTimeRecord.getSelectionModel().getSelectedItem().getIdcliente();
+        Integer numberMonth = (monthName.getSelectionModel().getSelectedIndex()) + 1;
+        String period = "01-".concat(numberMonth.toString()).concat("-").concat(yearNumber.getText());
+        Date referenceDate = null;
+        try {
+            referenceDate = dateFormatter.parse(period);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        List<ContractDTO> contractDTOList = contractController.findAllContractsByClientIdInPeriod(idSelectedClient, referenceDate);
+        if(!contractDTOList.isEmpty()) {
+            Integer employeeId;
+            String dateTo;
+            for (ContractDTO contractDTO : contractDTOList) {
+                employeeId = contractDTO.getIdtrabajador();
+                String employeeNIF = retrieveNifByPersonId(employeeId);
+                if(contractDTO.getF_hasta() != null){
+                    dateTo = dateFormatter.format(contractDTO.getF_hasta());
+                }else{
+                    dateTo = "";
+                }
+                String dateFrom = dateFormatter.format(contractDTO.getF_desde());
 
-        //refreshData();
-
+                TimeRecordCandidateDataDTO data = new TimeRecordCandidateDataDTO(
+                        contractDTO.getTrabajador_name(),
+                        employeeNIF,
+                        contractDTO.getContrato_ccc(),
+                        contractDTO.getJor_tipo(),
+                        contractDTO.getJor_trab(),
+                        contractDTO.getTipoctto(),
+                        dateFrom,
+                        dateTo
+                );
+                candidates.add(data);
+            }
+        }
+        refreshData(candidates);
     }
 
-    private void loadClientForTimeRecord(){
-        ClientManager manager = new ClientManager();
-        List<ClientDTO> activeClientList = manager.findAllActiveClientInAlphabeticalOrder();
-        ObservableList<ClientDTO> clientDTOS = FXCollections.observableArrayList(activeClientList);
+    private void loadClientForTimeRecord() {
+        ClientManager clientManager = new ClientManager();
+        List<TimeRecordClientDTO> activeClientList = clientManager.findAllClientWithActiveContractSorted();
+
+        List<TimeRecordClientDTO> activeClientListWithoutDuplicates = retrieveActiveClientListWithoutDuplicates(activeClientList);
+
+        ObservableList<TimeRecordClientDTO> clientDTOS = FXCollections.observableArrayList(activeClientListWithoutDuplicates);
         clientForTimeRecord.setItems(clientDTOS);
     }
 
-    private void refreshData(TimeRecordCandidateDataDTO candidate){
-        ObservableList<TimeRecordCandidateDataDTO> candidateObList = FXCollections.observableArrayList(candidate);
+    private List<TimeRecordClientDTO> retrieveActiveClientListWithoutDuplicates(List<TimeRecordClientDTO> activeClientList ){
+
+        List<TimeRecordClientDTO> activeClientListWithoutDuplicates = new ArrayList<>();
+
+        Map<Integer, TimeRecordClientDTO> clientMap = new HashMap<>();
+
+        for (TimeRecordClientDTO timeRecordClientDTO : activeClientList) {
+            clientMap.put(timeRecordClientDTO.getIdcliente(), timeRecordClientDTO);
+        }
+
+        for (Map.Entry<Integer, TimeRecordClientDTO> itemMap : clientMap.entrySet()) {
+            activeClientListWithoutDuplicates.add(itemMap.getValue());
+        }
+
+        return activeClientListWithoutDuplicates;
+    }
+
+    private void refreshData(List<TimeRecordCandidateDataDTO> candidates){
+
+        ObservableList<TimeRecordCandidateDataDTO> candidateObList = FXCollections.observableArrayList(candidates);
         dataByTimeRecord.setItems(candidateObList);
+    }
+
+    private String retrieveNifByPersonId(Integer employeeId){
+        PersonController personController = new PersonController();
+        PersonDTO employee = personController.findPersonById(employeeId);
+
+        return Utilities.formatAsNIF(employee.getNifcif());
     }
 }

@@ -112,7 +112,7 @@ public class ContractParts extends HBox {
 
     private void onSelectEmployee(PersonDTO newPersonValue){
 
-        employeeName.setText(newPersonValue.getApellidos() + ", " + newPersonValue.getNom_rzsoc());
+        employeeName.setText(newPersonValue.getApellidos().concat(", ").concat(newPersonValue.getNom_rzsoc()));
     }
 
     public void clearEmployersData(){

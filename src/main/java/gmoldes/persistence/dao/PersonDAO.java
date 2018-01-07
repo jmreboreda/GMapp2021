@@ -55,6 +55,14 @@ public class PersonDAO {
             return personVO.getIdpersona();
     }
 
+    public PersonVO findPersonById(Integer id){
+
+        TypedQuery<PersonVO> query = session.createNamedQuery(PersonVO.FIND_PERSON_BY_ID, PersonVO.class);
+        query.setParameter("code", id);
+
+        return (PersonVO) query.getSingleResult();
+    }
+
     public PersonVO findClientById(Integer id){
 
         Query query = session.createQuery(FIND_PERSON_BY_ID);
@@ -67,7 +75,7 @@ public class PersonDAO {
         
         Query query = session.createQuery(FIND_ALL_PERSON_IN_ALPHABETICAL_ORDER);
 
-        return (List<ClientVO>) query.getResultList();
+        return query.getResultList();
     }
 
     public List<PersonVO> findAllPersonsByNamePatternInAlphabeticalOrder(String nameLetters){

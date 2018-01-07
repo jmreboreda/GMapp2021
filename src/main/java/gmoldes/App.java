@@ -73,29 +73,5 @@ public class App extends Application{
 //        Integer idNewClient = clientDAO.createClient(clientVO);
 
     }
-
-    private static void createPDForm() throws IOException, DocumentException, PrinterException {
-
-        TimeRecord timeRecord = TimeRecord.create()
-                .withNameOfMonth("enero")
-                .withYearNumber("2018")
-                .withEnterpriseName("Colmado de Marujamaría C. B., O")
-                .withQuoteAccountCode("36012598712")
-                .withEmployeeName("Núñez Ferradás, Saleta")
-                .withEmployeeNIF("35.897.475-H")
-                .withNumberHoursPerWeek("24,00")
-                .build();
-
-        String pathToTimeRecordPDF = TimeRecord.createPDF(timeRecord);
-        Map<String, String> attributes = new HashMap<>();
-        attributes.put("papersize","A4");
-        attributes.put("sides", "DUPLEX");
-        attributes.put("chromacity","MONOCHROME");
-        attributes.put("orientation","LANDSCAPE");
-
-        Printer.printPDF(pathToTimeRecordPDF, attributes);
-        //Utilities.deleteFileFromPath(pathToTimeRecordPDF);
-
-        System.exit(0);
-    }
 }
+
